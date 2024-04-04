@@ -24,7 +24,7 @@ const TaskList = () => {
         return () => {
             ignore = true;
         };
-    }, [tasks]);
+    }, []);
 
     const taskClickHandler = (uuid) => {
         console.log("Task clicked. UUID: " + uuid);
@@ -33,11 +33,12 @@ const TaskList = () => {
     return (
         <div>
         {
-            tasks.map(
-                task => <TaskOverview
+            tasks.map( (task, index) =>
+                <TaskOverview
                     uuid={task.uuid}
                     summary={task.summary}
                     onTaskClick={taskClickHandler}
+                    key={"TaskList_task_" + index}
                 />
             )
         }
