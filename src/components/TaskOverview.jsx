@@ -1,4 +1,4 @@
-const TaskOverview = ({uuid, title, category, type, status, onTaskClick}) => {
+const TaskOverview = ({uuid, summary, onTaskClick}) => {
     return(
         <button className="
             w-full
@@ -11,30 +11,16 @@ const TaskOverview = ({uuid, title, category, type, status, onTaskClick}) => {
             mt-2 mb-2
             shadow-xl"
 
-            onClick={onTaskClick}
+            onClick={function() {onTaskClick(uuid); }}
         >
             <div className="grow flex flex-col text-left">
                 <p className="text-slate-400 text-sm tracking-tight">
                     uuid: {uuid}
                 </p>
                 <h3 className="text-white text-normal font-normal m-0 p-0 line-clamp-1">
-                    {title}
+                    {summary}
                 </h3>
             </div>
-            {/* <ul className="text-xs flex flex-wrap flex-row text-white m-0 mt-3">
-                <li className="bg-blue-500/40 font-normal py-1 px-2 mb-1 rounded inline-block">
-                    Category:&nbsp;
-                    <div className="inline-block">{category}</div>
-                </li>
-                <li className="bg-red-500/40 font-normal py-1 px-2 mb-1 rounded inline-block">
-                    Type:&nbsp;
-                    <div className="inline-block">{type}</div>
-                </li>
-                <li className="bg-green-500/40 font-normal py-1 px-2 mb-1 rounded inline-block">
-                    Status:&nbsp;
-                    <div className="inline-block">{status}</div>
-                </li>
-            </ul> */}
         </button>
     )
 }
