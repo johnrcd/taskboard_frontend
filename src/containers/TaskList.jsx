@@ -7,7 +7,7 @@ import TaskOverview from '../components/TaskOverview.jsx';
 /**
  * Exports the latest tasks.
  */
-const TaskList = () => {
+const TaskList = ({onTaskClick}) => {
     const [tasks, setTasks] = useState([]);
 
     // https://react.dev/reference/react/useEffect#fetching-data-with-effects
@@ -26,18 +26,14 @@ const TaskList = () => {
         };
     }, []);
 
-    const taskClickHandler = (uuid) => {
-        console.log("Task clicked. UUID: " + uuid);
-    }
-
     return (
         <div>
         {
-            tasks.map( (task, index) =>
+            tasks.map((task, index) =>
                 <TaskOverview
                     uuid={task.uuid}
                     summary={task.summary}
-                    onTaskClick={taskClickHandler}
+                    onTaskClick={(uuid) => onTaskClick(uuid)}
                     key={"TaskList_task_" + index}
                 />
             )

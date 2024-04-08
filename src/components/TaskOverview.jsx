@@ -11,7 +11,7 @@ const TaskOverview = ({uuid, summary, onTaskClick}) => {
             mt-2 mb-2
             shadow-xl"
 
-            onClick={function() {onTaskClick(uuid); }}
+            onClick={() => onTaskClick(uuid)}
         >
             <div className="grow flex flex-col text-left">
                 <p className="text-slate-400 text-sm tracking-tight">

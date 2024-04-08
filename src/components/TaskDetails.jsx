@@ -1,4 +1,4 @@
-const TaskDetails = ({uuid, title, author, category, type, status, description}) => {
+const TaskDetails = ({uuid, summary, author, category, type, status, description}) => {
     return(
         <div className="
             bg-gradient-to-t from-cyan-400/10 to-blue-500/10
@@ -10,7 +10,7 @@ const TaskDetails = ({uuid, title, author, category, type, status, description})
             block"
         >
             <h3 className="text-white text-xl font-normal m-0 p-0 line-clamp-1">
-                {title}
+                {summary}
             </h3>
 
             <ul className="text-xs flex flex-wrap flex-row space-x-1 text-white m-0 mt-1">
