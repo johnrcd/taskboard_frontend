@@ -27,7 +27,10 @@ const TaskList = ({onTaskClick, className}) => {
     }, []);
 
     return (
-        <div className={className}>
+        <div className={
+            className + " " +
+            "flex flex-col space-y-2"
+        }>
         {
             tasks.map((task, index) =>
                 <TaskOverview

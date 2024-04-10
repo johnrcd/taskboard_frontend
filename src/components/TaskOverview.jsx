@@ -8,7 +8,6 @@ const TaskOverview = ({uuid, summary, onTaskClick}) => {
             rounded-lg
             px-4 py-3
             ring-1 ring-slate-900/5
-            mt-2 mb-2
             shadow-xl"
 
             onClick={() => onTaskClick(uuid)}

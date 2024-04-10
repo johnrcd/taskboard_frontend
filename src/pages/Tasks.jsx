@@ -22,17 +22,18 @@ const Tasks = () => {
                     type: data.type,
                     status: data.status,
                     description: data.description,
+                    comments: data.comments
                 });
             });
     }
 
     return(
         <div className="bg-slate-900 min-h-screen flex justify-center">
-            <div className="w-full max-w-screen-xl">
+            <div className="w-full max-w-screen-xl max-h-screen h-screen">
                 <MainHeader />
                 <div className="flex space-x-3">
                     <TaskList
-                        className="flex-none w-70"
+                        className="flex-none w-70 overflow-y-scroll h-[70vh]"
                         onTaskClick={(uuid) => taskClickHandler(uuid)}
                     />
                     <TaskDetails
@@ -43,9 +44,10 @@ const Tasks = () => {
                         type        = {currentTask.type        || ""}
                         status      = {currentTask.status      || ""}
                         description = {currentTask.description || ""}
+                        comments    = {currentTask.comments    || ""}
                     />
                 </div>
-                <MainFooter />
+                {/* <MainFooter /> */}
             </div>
         </div>
     )
