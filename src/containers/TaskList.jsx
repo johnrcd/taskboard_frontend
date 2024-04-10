@@ -7,7 +7,7 @@ import TaskOverview from '../components/TaskOverview.jsx';
 /**
  * Exports the latest tasks.
  */
-const TaskList = ({onTaskClick}) => {
+const TaskList = ({onTaskClick, className}) => {
     const [tasks, setTasks] = useState([]);
 
     // https://react.dev/reference/react/useEffect#fetching-data-with-effects
@@ -27,7 +27,7 @@ const TaskList = ({onTaskClick}) => {
     }, []);
 
     return (
-        <div>
+        <div className={className}>
         {
             tasks.map((task, index) =>
                 <TaskOverview

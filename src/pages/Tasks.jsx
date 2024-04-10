@@ -32,7 +32,7 @@ const Tasks = () => {
                 <MainHeader />
                 <div className="flex space-x-3">
                     <TaskList
-                        className="flex-none w-60"
+                        className="flex-none w-70"
                         onTaskClick={(uuid) => taskClickHandler(uuid)}
                     />
                     <TaskDetails
