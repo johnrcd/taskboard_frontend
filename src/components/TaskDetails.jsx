@@ -1,4 +1,4 @@
-const TaskDetails = ({uuid, summary, author, category, type, status, description, comments}) => {
+const TaskDetails = ({uuid, summary, author, dateCreated, type, status, description, comments}) => {
     return(
         <div className="
             bg-gradient-to-t from-cyan-400/10 to-blue-500/10
@@ -15,10 +15,6 @@ const TaskDetails = ({uuid, summary, author, category, type, status, description
                     </h3>
 
                     <ul className="text-xs flex flex-wrap flex-row space-x-1 text-white m-0 mt-1">
-                        {/* <li className="bg-blue-500/40 font-normal py-1 px-2 mb-1 rounded inline-block">
-                            Category:&nbsp;
-                            <div className="inline-block">{category}</div>
-                        </li> */}
                         <li className="bg-cyan-500/40 font-normal py-1 px-2 mb-1 rounded inline-block">
                             Type:&nbsp;
                             <div className="inline-block">{type}</div>
@@ -34,6 +30,9 @@ const TaskDetails = ({uuid, summary, author, category, type, status, description
                     </p>
                     <p className="text-slate-400 text-sm tracking-tight">
                         author: {author}
+                    </p>
+                    <p className="text-slate-400 text-sm tracking-tight">
+                        posted on: {dateCreated}
                     </p>
 
                     <h4 className="text-slate-200 text-normal font-bold tracking-tight mt-5">Description</h4>

@@ -14,6 +14,16 @@ const Tasks = () => {
         await fetchFromApi("/api/tasks/" + uuid)
             .then(response => { return response.json(); })
             .then(data => {
+                const dateFormatOptions = {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                };
+                const date = new Date(data.date_created);
+                const formattedDate =
+                    date.toLocaleString("en-US", dateFormatOptions);
+
                 setCurrentTask({
                     uuid: data.uuid,
                     summary: data.summary,
@@ -22,7 +32,8 @@ const Tasks = () => {
                     type: data.type,
                     status: data.status,
                     description: data.description,
-                    comments: data.comments
+                    comments: data.comments,
+                    dateCreated: formattedDate,
                 });
             });
     }
@@ -45,6 +56,7 @@ const Tasks = () => {
                         status      = {currentTask.status      || ""}
                         description = {currentTask.description || ""}
                         comments    = {currentTask.comments    || ""}
+                        dateCreated = {currentTask.dateCreated || ""}
                     />
                 </div>
                 {/* <MainFooter /> */}
