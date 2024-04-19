@@ -49,11 +49,20 @@ const Tasks = () => {
 
     return(
         <div className="bg-slate-900 min-h-screen flex justify-center">
-            <div className="w-full max-w-screen-xl max-h-screen h-screen">
+            <div className="w-full max-w-screen-xl">
                 <MainHeader />
-                <div className="flex space-x-3 flex-row">
+                <div className="
+                    flex
+                    space-x-0 md:space-x-3 
+                    space-y-3 md:space-y-0
+                    flex-col md:flex-row
+                ">
                     <TaskList
-                        className="flex-none w-70 overflow-y-scroll h-[70vh]"
+                        className="
+                            flex-none
+                            md:w-70
+                            h-[30vh] md:h-[70vh]
+                            overflow-y-scroll "
                         onTaskClick={(uuid) => taskClickHandler(uuid)}
                     />
                     <TaskDetails
@@ -66,7 +75,10 @@ const Tasks = () => {
                         description = {currentTask.description || ""}
                         comments    = {currentTask.comments    || ""}
                         dateCreated = {currentTask.dateCreated || ""}
-                        style="w-70 overflow-y-scroll h-[70vh]"
+                        style="
+                            md:w-70
+                            md:h-[70vh]
+                            md:overflow-y-scroll"
                     />
                 </div>
                 {/* <MainFooter /> */}

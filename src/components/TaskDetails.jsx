@@ -43,7 +43,15 @@ const TaskDetails = ({uuid, summary, author, dateCreated, type, status, descript
                     <h4 className="text-slate-200 text-normal font-bold tracking-tight mt-5">Comments</h4>
                     {
                         comments.map((comment, index) =>
-                        <div className="border-t-2 border-slate-400/50 mt-2 p-2 bg-slate-400/5">
+                        <div
+                            className={
+                                "border-t-2 mt-2 p-2" +
+                                " border-slate-400/50 " +
+                                " bg-slate-400/5 " +
+                                "comment"
+                            }
+                            key={"comment_" + uuid + "_" + index}
+                        >
                             <h4 className="text-slate-200 text-normal font-bold tracking-tight inline-block">
                                 {comment.poster}
                             </h4>
