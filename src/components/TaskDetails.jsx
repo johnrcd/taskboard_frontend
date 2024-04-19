@@ -1,13 +1,15 @@
-const TaskDetails = ({uuid, summary, author, dateCreated, type, status, description, comments}) => {
+const TaskDetails = ({uuid, summary, author, dateCreated, type, status, description, comments, style}) => {
     return(
-        <div className="
-            bg-gradient-to-t from-cyan-400/10 to-blue-500/10
-            rounded-lg
-            px-4 py-3
-            shadow-xl
-            w-full
-            block"
-        >
+        <div className={
+            // add spaces at the end of each string
+            "bg-gradient-to-b from-cyan-400/5 to-blue-500/10 " +
+            "rounded-lg " +
+            "px-4 py-3 " +
+            "shadow-xl " +
+            "w-full " +
+            "block " +
+            style
+        }>
             {summary !== "" && // mfw conditional rendering
                 <div>
                     <h3 className="text-white text-xl font-normal m-0 p-0 line-clamp-1">
@@ -37,16 +39,22 @@ const TaskDetails = ({uuid, summary, author, dateCreated, type, status, descript
 
                     <h4 className="text-slate-200 text-normal font-bold tracking-tight mt-5">Description</h4>
                     <p className="text-slate-300 text-normal tracking-tight max-w-xl whitespace-pre-wrap">{description}</p>
-
-                    {comments !== "" && comments !== null &&
-                    <>
-                        <div className="border-t-2 border-slate-400/50 pt-5 mt-5">
-                            <h4 className="text-slate-200 text-normal font-bold tracking-tight">Developer Comments</h4>
+                    
+                    <h4 className="text-slate-200 text-normal font-bold tracking-tight mt-5">Comments</h4>
+                    {
+                        comments.map((comment, index) =>
+                        <div className="border-t-2 border-slate-400/50 mt-2 p-2 bg-slate-400/5">
+                            <h4 className="text-slate-200 text-normal font-bold tracking-tight inline-block">
+                                {comment.poster}
+                            </h4>
+                            <p className="text-slate-400 text-sm pl-2 tracking-tight inline-block">
+                                {new Date(comment.date_created).toLocaleString()}
+                            </p>
                             <p className="text-slate-300 text-normal tracking-tight max-w-xl">
-                                {comments}
+                                {comment.content}
                             </p>
                         </div>
-                    </>
+                        )
                     }
                 </div>
             }

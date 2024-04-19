@@ -11,6 +11,15 @@ const Tasks = () => {
     const [currentTask, setCurrentTask] = useState({});
 
     const taskClickHandler = async (uuid) => {
+        let comments = [];
+        await fetchFromApi("/api/comments/?uuid=" + uuid)
+            .then(response => { return response.json(); })
+            .then(data => {
+                if (data !== undefined && data !== null) {
+                    comments = data;
+                }
+            });
+        
         await fetchFromApi("/api/tasks/" + uuid)
             .then(response => { return response.json(); })
             .then(data => {
@@ -32,7 +41,7 @@ const Tasks = () => {
                     type: data.type,
                     status: data.status,
                     description: data.description,
-                    comments: data.comments,
+                    comments: comments,
                     dateCreated: formattedDate,
                 });
             });
@@ -42,7 +51,7 @@ const Tasks = () => {
         <div className="bg-slate-900 min-h-screen flex justify-center">
             <div className="w-full max-w-screen-xl max-h-screen h-screen">
                 <MainHeader />
-                <div className="flex space-x-3">
+                <div className="flex space-x-3 flex-row">
                     <TaskList
                         className="flex-none w-70 overflow-y-scroll h-[70vh]"
                         onTaskClick={(uuid) => taskClickHandler(uuid)}
@@ -57,6 +66,7 @@ const Tasks = () => {
                         description = {currentTask.description || ""}
                         comments    = {currentTask.comments    || ""}
                         dateCreated = {currentTask.dateCreated || ""}
+                        style="w-70 overflow-y-scroll h-[70vh]"
                     />
                 </div>
                 {/* <MainFooter /> */}
