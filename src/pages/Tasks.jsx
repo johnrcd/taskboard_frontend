@@ -59,9 +59,9 @@ const Tasks = () => {
                 ">
                     <TaskList
                         className="
-                            flex-none
-                            md:w-70
-                            h-[30vh] md:h-[70vh]
+                            flex-none 
+                            w-full md:w-[360px] 
+                            h-[30vh] md:h-[70vh] 
                             overflow-y-scroll "
                         onTaskClick={(uuid) => taskClickHandler(uuid)}
                     />
