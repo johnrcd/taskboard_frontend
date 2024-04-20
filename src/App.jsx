@@ -4,9 +4,9 @@ import Tasks from './pages/Tasks';
 
 export default function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Routes>
-                <Route index element={<Tasks/>} />
+                <Route path="/" element={<Tasks/>} />
             </Routes>
         </BrowserRouter>
     )
