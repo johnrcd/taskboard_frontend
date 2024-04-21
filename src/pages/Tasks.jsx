@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { fetchFromApi } from "../util/api.js";
 
 import MainHeader from "../components/MainHeader";
-import MainFooter from "../components/MainFooter";
 import TaskList from "../containers/TaskList";
 import TaskDetails from '../components/TaskDetails.jsx';
 
@@ -32,11 +31,12 @@ const Tasks = () => {
                 const date = new Date(data.date_created);
                 const formattedDate =
                     date.toLocaleString("en-US", dateFormatOptions);
-
+                
                 setCurrentTask({
                     uuid: data.uuid,
                     summary: data.summary,
                     author: data.author,
+                    project: data.project,
                     category: data.category,
                     type: data.type,
                     status: data.status,
@@ -70,6 +70,7 @@ const Tasks = () => {
                         summary     = {currentTask.summary     || ""}
                         author      = {currentTask.author      || ""}
                         category    = {currentTask.category    || ""}
+                        project     = {currentTask.project     || ""}
                         type        = {currentTask.type        || ""}
                         status      = {currentTask.status      || ""}
                         description = {currentTask.description || ""}

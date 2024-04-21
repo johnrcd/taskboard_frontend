@@ -1,4 +1,4 @@
-const TaskDetails = ({uuid, summary, author, dateCreated, type, status, description, comments, style}) => {
+const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status, description, comments, style}) => {
     return(
         <div className={
             // add spaces at the end of each string
@@ -17,11 +17,15 @@ const TaskDetails = ({uuid, summary, author, dateCreated, type, status, descript
                     </h3>
 
                     <ul className="text-xs flex flex-wrap flex-row space-x-1 text-white m-0 mt-1">
-                        <li className="bg-cyan-500/40 font-normal py-1 px-2 mb-1 rounded inline-block">
+                        <li className="bg-cyan-500/30 font-normal py-1 px-2 mb-1 rounded inline-block">
                             Type:&nbsp;
                             <div className="inline-block">{type}</div>
                         </li>
-                        <li className="bg-blue-500/40 font-normal py-1 px-2 mb-1 rounded inline-block">
+                        <li className="bg-sky-500/30 font-normal py-1 px-2 mb-1 rounded inline-block">
+                            Project:&nbsp;
+                            <div className="inline-block">{project}</div>
+                        </li>
+                        <li className="bg-blue-500/30 font-normal py-1 px-2 mb-1 rounded inline-block">
                             Status:&nbsp;
                             <div className="inline-block">{status}</div>
                         </li>
