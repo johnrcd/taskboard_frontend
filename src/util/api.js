@@ -1,7 +1,7 @@
 // swap root_url depending on where the REST API is being hosted
 
-// export const root_url = "http://127.0.0.1:8000"
-const root_url = "https://johnrcd.pythonanywhere.com"
+export const root_url = "http://127.0.0.1:8000"
+// const root_url = "https://johnrcd.pythonanywhere.com"
 
 /**
  * Wrapper for fetch request.
