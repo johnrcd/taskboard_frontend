@@ -1,6 +1,6 @@
 import MainHeader from "../components/MainHeader";
 
-const Home = () => {
+const About = () => {
     return (
         <div className="bg-slate-900 min-h-screen flex justify-center">
             <div className="w-full max-w-2xl text-slate-200">
@@ -29,4 +29,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default About;

@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 
 import { fetchFromApi } from "../util/api.js";
 
-import MainHeader from "../components/MainHeader";
-import TaskList from "../containers/TaskList";
+import MainHeader from "../components/MainHeader.jsx";
+import TaskList from "../containers/TaskList.jsx";
 import TaskDetails from '../components/TaskDetails.jsx';
 
-const Tasks = () => {
+const IndexPage = () => {
     const [currentTask, setCurrentTask] = useState({});
 
     const taskClickHandler = async (uuid) => {
@@ -88,4 +88,4 @@ const Tasks = () => {
     )
 };
 
-export default Tasks;
+export default IndexPage;
