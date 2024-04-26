@@ -17,5 +17,5 @@ The frontend was created using Vite, React, and Tailwind CSS.
 Specifically,
 
 - React: ver. 18.2.0
-- Tailwind CSS: 3.4.3
+- Tailwind CSS: ver. 3.4.3
 - Vite: ver. 5.2.7
