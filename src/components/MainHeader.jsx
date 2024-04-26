@@ -11,13 +11,14 @@ const MainHeader = () => {
                 text-base font-normal text-center text-stone-300
                 mt-2 p-2 flex-1
                 bg-gradient-to-r from-cyan-500/10 to-blue-500/10
+                rounded-lg
             ">
-                <ul className="flex justify-center gap-x-3 divide-x divide-stone-300/30">
-                    <li className="pl-3 hover:underline"><Link to="/about">About</Link></li>
-                    <li className="pl-3 hover:underline"><Link to="/">View Board</Link></li>
-                    <li className="pl-3 hover:underline"><Link to="/submit">Submit A Task</Link></li>
-                    <li className="pl-3 hover:underline">Sign In</li>
-                    <li className="pl-3 hover:underline">Register</li>
+                <ul className="flex justify-center divide-x divide-stone-300/30">
+                    <li><Link className="px-3 hover:underline hover:text-stone-100" to="/about">About</Link></li>
+                    <li><Link className="px-3 hover:underline hover:text-stone-100" to="/">View Board</Link></li>
+                    <li><Link className="px-3 hover:underline hover:text-stone-100" to="/submit">Submit A Task</Link></li>
+                    <li className="px-3 hover:underline hover:text-stone-100">Login</li>
+                    <li className="px-3 hover:underline hover:text-stone-100">Register</li>
                 </ul>
             </nav>
         </header>
