@@ -1,7 +1,8 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import About from './pages/About';
 import IndexPage from './pages/IndexPage';
+import About from './pages/About';
+import SubmitTask from './pages/SubmitTask';
 
 export default function App() {
     return (
@@ -9,6 +10,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<IndexPage/>} />
                 <Route path="/about" element={<About/>} />
+                <Route path="/submit" element={<SubmitTask/>} />
             </Routes>
         </BrowserRouter>
     )

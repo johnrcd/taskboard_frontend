@@ -14,8 +14,8 @@ const MainHeader = () => {
             ">
                 <ul className="flex justify-center gap-x-3 divide-x divide-stone-300/30">
                     <li className="pl-3 hover:underline"><Link to="/about">About</Link></li>
-                    <li className="pl-3 hover:underline" ><Link to="/">View Board</Link></li>
-                    <li className="pl-3 hover:underline">Submit A Task</li>
+                    <li className="pl-3 hover:underline"><Link to="/">View Board</Link></li>
+                    <li className="pl-3 hover:underline"><Link to="/submit">Submit A Task</Link></li>
                     <li className="pl-3 hover:underline">Sign In</li>
                     <li className="pl-3 hover:underline">Register</li>
                 </ul>
