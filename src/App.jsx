@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import About from './pages/Home';
+import About from './pages/About';
 import IndexPage from './pages/IndexPage';
 
 export default function App() {
