@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import IndexPage from './pages/IndexPage';
 import About from './pages/About';
 import SubmitTask from './pages/SubmitTask';
+import Login from './pages/Login';
 
 export default function App() {
     return (
@@ -11,6 +12,7 @@ export default function App() {
                 <Route path="/" element={<IndexPage/>} />
                 <Route path="/about" element={<About/>} />
                 <Route path="/submit" element={<SubmitTask/>} />
+                <Route path="login" element={<Login/>} />
             </Routes>
         </BrowserRouter>
     )

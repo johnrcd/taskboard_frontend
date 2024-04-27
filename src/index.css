@@ -25,7 +25,10 @@
     ::-webkit-scrollbar-thumb:hover {
         background: rgba(255, 255, 255, 0.6);
     }
-
+    ::selection {
+        color: black;
+        background: rgb(122, 255, 252);
+    }
 
     @media (max-width: 768px) {
         ::-webkit-scrollbar {

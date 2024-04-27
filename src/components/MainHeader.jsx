@@ -17,7 +17,7 @@ const MainHeader = () => {
                     <li><Link className="px-3 hover:underline hover:text-stone-100" to="/about">About</Link></li>
                     <li><Link className="px-3 hover:underline hover:text-stone-100" to="/">View Board</Link></li>
                     <li><Link className="px-3 hover:underline hover:text-stone-100" to="/submit">Submit A Task</Link></li>
-                    <li className="px-3 hover:underline hover:text-stone-100">Login</li>
+                    <li><Link className="px-3 hover:underline hover:text-stone-100" to="/login">Login</Link></li>
                     <li className="px-3 hover:underline hover:text-stone-100">Register</li>
                 </ul>
             </nav>
