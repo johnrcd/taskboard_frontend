@@ -10,15 +10,6 @@ const IndexPage = () => {
     const [currentTask, setCurrentTask] = useState({});
 
     const taskClickHandler = async (uuid) => {
-        let comments = [];
-        await fetchFromApi("/api/comments/?uuid=" + uuid)
-            .then(response => { return response.json(); })
-            .then(data => {
-                if (data !== undefined && data !== null) {
-                    comments = data;
-                }
-            });
-        
         await fetchFromApi("/api/tasks/" + uuid)
             .then(response => { return response.json(); })
             .then(data => {
@@ -41,7 +32,7 @@ const IndexPage = () => {
                     type: data.type,
                     status: data.status,
                     description: data.description,
-                    comments: comments,
+                    comments: data.comments,
                     dateCreated: formattedDate,
                 });
             });
