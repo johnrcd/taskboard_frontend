@@ -15,7 +15,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<IndexPage/>} />
                 <Route path="/about" element={<About/>} />
-                <Route path="/submit" element={isLoggedIn ? <SubmitTask/> : <Login/>}/>
+                <Route path="/submit" element={<PrivateRoute component={<SubmitTask/>}/>}/>
                 <Route path="/login" element={<Login/>} />
             </Routes>
         </BrowserRouter>
