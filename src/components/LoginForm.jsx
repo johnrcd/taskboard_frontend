@@ -44,7 +44,23 @@ const LoginForm = () => {
             <br /> <hr className="border-1 border-slate-500"/> <br />
 
             <p className="text-stone-200 text-center">Don't have an account?</p>
-            <Link className="px-3 hover:underline text-stone-200 hover:text-stone-100 text-center block font-bold" to="/login">Register</Link>
+            <Link
+                className="px-3 hover:underline text-stone-200 hover:text-stone-100 text-center block font-bold"
+                to="/login"
+            >
+                Register
+            </Link>
+
+            <br />
+
+            <Link
+                className="px-3 hover:underline text-stone-200 hover:text-stone-100 text-center block font-bold"
+                to="/"
+            >
+                Go to Home Page
+            </Link>
+
+
         </form>
     )
 };
