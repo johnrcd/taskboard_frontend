@@ -15,21 +15,13 @@ const About = () => {
                         want added, note down any issues that you find, or give ideas for new
                         projects.
                     </p> <br />
-                    <p>
-                        <b>NOTE:</b> This website was created for the purposes of demonstrating my
-                        ability to create a full-stack web application. I don't treat this website
-                        as an actual public suggestion/issue board, though feel free to use it
-                        anyways!
-                    </p> <br />
-                    <p>
-                        (at the time of writing, this website is currently read-only)
-                    </p> <br />
 
                     <hr className="border-1 border-slate-500"/> <br />
 
                     <p className="text-slate-300">
-                        Ticket is more accurate than Task, but a Ticketboard doesn't
-                        have the same coolness as Taskboard, so that's why they're called tasks.
+                        <b>NOTE:</b> This website is still being actively developed! Currently,
+                        you can view existing tasks, but there's no system in place to add new
+                        tasks yet.
                     </p>
                 </main>
             </div>
