@@ -3,10 +3,8 @@ import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const MainHeader = () => {
-    // State to manage the navbar's visibility
     const [isNavigationEnabled, setIsNavigatorEnabled] = useState(false);
 
-    // Toggle function to handle the navbar's display
     const handleNav = () => {
         setIsNavigatorEnabled(!isNavigationEnabled);
     };
@@ -15,18 +13,17 @@ const MainHeader = () => {
         { id: 1, path: "/about",  text: "About"         },
         { id: 2, path: "/",       text: "View Board"    },
         { id: 3, path: "/submit", text: "Submit A Task" },
-        // { id: 4, path: "/login",  text: "Login"         },
     ];
 
     return (
         <>
+            {/* Desktop Navigation */}
+
             <header className="pt-5 pb-5 hidden md:flex flex-col justify-center">
                 <h1 className="flex-1 text-4xl md:text-6xl font-bold text-center text-stone-100">
                     The Taskboard
                 </h1>
                 <p className="flex-1 text-base font-normal text-center text-stone-300 mt-2">Created by Rovi Decena</p>
-
-                {/* Desktop Navigation */}
 
                 <nav className="
                     text-base font-normal text-center text-stone-300
@@ -51,7 +48,8 @@ const MainHeader = () => {
             </header>
 
             {/* Mobile Navigation Menu */}
-            <header className="">
+
+            <header>
                 <nav className="
                     text-base font-normal text-center text-stone-300
                     p-2 flex-1
@@ -94,6 +92,7 @@ const MainHeader = () => {
             </header>
 
             {/* how do you properly prevent a fixed nav bar from overlapping... */}
+            
             <div className="block md:hidden">
                 <br /> 
                 <br />
