@@ -1,7 +1,7 @@
 // swap root_url depending on where the REST API is being hosted
 
-// export const root_url = "http://127.0.0.1:8000"
-const root_url = "https://johnrcd.pythonanywhere.com"
+export const root_url = "http://127.0.0.1:8000"
+// const root_url = "https://johnrcd.pythonanywhere.com"
 
 /**
  * Wrapper for fetch request.
@@ -22,6 +22,7 @@ export const fetchFromApi = async(path, options) => {
     }
     return await fetch(root_url + path, options);
 }
+
 /**
  * Adds credentials to the options in a fetch request.
  * @param {string} path The API endpoint you are trying to access. Do not put
