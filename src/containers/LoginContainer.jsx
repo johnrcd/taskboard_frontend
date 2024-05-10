@@ -22,6 +22,7 @@ const LoginContainer = () => {
                 // check for errors
                 setFormErrors([]);
 
+                // TODO: fix errors not displaying properly
                 if ("detail"   in data) { setFormErrors(formErrors => [data.detail, ...formErrors])} 
                 if ("username" in data) { setFormErrors(formErrors => ["Username is empty.", ...formErrors]); }
                 if ("password" in data) { setFormErrors(formErrors => ["Password is empty.", ...formErrors]); }
