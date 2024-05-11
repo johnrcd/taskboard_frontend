@@ -4,7 +4,7 @@ import { fetchFromApi } from "../util/api";
 import { setAccessToken } from "../util/auth";
 
 const LoginContainer = () => {
-    const [formErrors, setFormErrors] = useState([]);
+    const [isLoginValid, setIsLoginValid] = useState(true);
 
     const onSubmitHandler = async (username, password) => {
         const options = {
@@ -22,16 +22,13 @@ const LoginContainer = () => {
             .then(data => {
                 if ("access" in data && "refresh" in data) {
                     setAccessToken(data.access);
+                    setIsLoginValid(true);
                     // no refresh for now lol
                     // yes, this means you'll have to login constantly
                 }
                 // something went wrong
                 else {
-                    setFormErrors([]);
-
-                    // TODO: fix errors not displaying properly
-                    if ("detail"   in data) { setFormErrors(formErrors => [data.detail, ...formErrors])} 
-                    console.log(formErrors);
+                    setIsLoginValid(false);
                 }
             })
     };
@@ -41,7 +38,7 @@ const LoginContainer = () => {
         <>
             <LoginForm
                 onLoginHandler={(username, password) => onSubmitHandler(username, password)}
-                errors={formErrors}
+                showError={!isLoginValid}
             />
         </>
     )

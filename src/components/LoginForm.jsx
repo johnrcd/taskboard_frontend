@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginForm = ({onLoginHandler, errors}) => {
+const LoginForm = ({onLoginHandler, showError}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -47,6 +47,15 @@ const LoginForm = ({onLoginHandler, errors}) => {
 
             <br />
 
+            {showError &&
+            <>
+                <p className="text-stone-200 text-center">
+                    Username or password is invalid.
+                </p>
+                <br />
+            </>
+            }
+
             <div className="flex justify-center">
                 <button
                     className="
@@ -63,13 +72,6 @@ const LoginForm = ({onLoginHandler, errors}) => {
                 </button>
             </div>
 
-            {
-            errors.map((error, index) => {
-                <p className="text-stone-200">
-                    {error}
-                </p>
-            })
-            }
 
             <br /> <hr className="border-1 border-slate-500"/> <br />
 
