@@ -26,6 +26,7 @@ const LoginForm = ({onLoginHandler, errors}) => {
                 name="username"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
+                required
             /><br />
 
             <label className="text-stone-200" htmlFor="password">Password</label><br />
@@ -41,6 +42,7 @@ const LoginForm = ({onLoginHandler, errors}) => {
                 name="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+                required
             /><br />
 
             <br />
