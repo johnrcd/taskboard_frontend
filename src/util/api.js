@@ -1,3 +1,4 @@
+import { getAccessToken } from "./auth";
 // swap root_url depending on where the REST API is being hosted
 
 export const root_url = "http://127.0.0.1:8000"
@@ -28,39 +29,13 @@ export const fetchFromApi = async(path, options) => {
  * @param {string} path The API endpoint you are trying to access. Do not put
  * in the domain. This string should not start with a slash.
  * @param {object} options Options for fetch request. If the Authorization
- * header is set, it will be overriden.
+ * header is set, it will be overriden. This must be set.
  * @returns Response from fetch.
  */
-const fetchAsUser = async(path, options) => {
-    const credentials = localStorage.getItem("credentials_base64");
-    options["headers"]["Authorization"] = 'Basic ' + credentials
-    return fetch(root_url + path, options);
-}
-
-const displayLoginStatus = () => {
-    const username = localStorage.getItem("username");
-
-    if (username === null || username === "" || username === "null") {
-        const login_overview = document.getElementById("login_overview");
-        login_overview.style.display = "none";
+export const fetchAsUser = async(path, options) => {
+    if (options === null || options === undefined) {
+        throw Error("Parameter \"options\" in function fetchAsUser cannot be null or undefined.")
     }
-
-    const login_status_element = document.getElementById("login_status");
-    const message = "You are logged in as: " + username + ".";
-    login_status_element.textContent = message;
-}
-
-const connectToLogoutButton = () => {
-    const logout_button = document.getElementById("logout_button");
-    logout_button.addEventListener(
-        "click",
-        logout
-    );
-}
-
-const logout = () => {
-    localStorage.setItem("credentials_base64", null);
-    localStorage.setItem("username", null);
-    
-    location.reload(true);
+    options["headers"]["Authorization"] = 'Bearer ' + getAccessToken();
+    return fetch(root_url + path, options);
 }

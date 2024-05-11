@@ -1,6 +1,7 @@
 // https://stackoverflow.com/a/68777827
 
 import { Navigate } from "react-router";
+import { useLoginStatus } from "../hooks/useLoginStatus";
 
 /**
  * Redirects to the login page if the user is not logged in.
@@ -9,11 +10,7 @@ import { Navigate } from "react-router";
  * @returns {Component}
  */
 const PrivateRoute = ({ component }) => {
-    // TODO: authentication logic
-    
-    // NOTE: useState was causing infinite re-rendering
-    //       not sure why because i'm an idiot
-    const isAuthenticated = false;
+    const isAuthenticated = useLoginStatus();
  
     return isAuthenticated ? component : <Navigate to="/login" />;
 };
