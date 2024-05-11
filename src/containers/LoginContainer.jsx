@@ -2,8 +2,10 @@ import LoginForm from "../components/LoginForm";
 import { useState } from 'react';
 import { fetchFromApi } from "../util/api";
 import { setAccessToken } from "../util/auth";
+import { useNavigate } from "react-router-dom";
 
 const LoginContainer = () => {
+    const navigate = useNavigate();
     const [isLoginValid, setIsLoginValid] = useState(true);
 
     const onSubmitHandler = async (username, password) => {
@@ -25,6 +27,8 @@ const LoginContainer = () => {
                     setIsLoginValid(true);
                     // no refresh for now lol
                     // yes, this means you'll have to login constantly
+
+                    navigate("/");
                 }
                 // something went wrong
                 else {
