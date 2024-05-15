@@ -26,9 +26,29 @@ export const useAuthentication = () => {
                 options  
             )
                 .then(response => { setIsAuthenticated(response.ok); })
+                .error(() => { setIsAuthenticated(false); })
                 .finally(() => { setIsLoading(false); });
         };
         fetchLoginStatus();
+
+        // TODO: refresh tokens
+        // NOTE: see possible plan below
+
+        // 1: Test current auth token.
+        // If successful, return true.
+        // If it failed, continue below.
+
+        // 2: Test current refresh token.
+        // If successful replace current refresh and auth token
+
+        //     2.1 test current auth token
+        //     If it failed, uh... return false. Not sure why that would happen.
+        //     If successful, return true.
+
+        // 3: Test auth token again.
+        // If successful, return true.
+        // If it failed. Give up.
+
         return;
     }, []);
 
