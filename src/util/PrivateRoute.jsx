@@ -1,7 +1,7 @@
 // https://stackoverflow.com/a/68777827
 
 import { Navigate } from "react-router";
-import { useLoginStatus } from "../hooks/useLoginStatus";
+import { useAuthentication } from "../hooks/useAuthentication";
 
 /**
  * Redirects to the login page if the user is not logged in.
@@ -10,9 +10,13 @@ import { useLoginStatus } from "../hooks/useLoginStatus";
  * @returns {Component}
  */
 const PrivateRoute = ({ component }) => {
-    const isAuthenticated = useLoginStatus();
- 
-    return isAuthenticated ? component : <Navigate to="/login" />;
+    const {isAuthenticated, isLoading} = useAuthentication();
+
+    if (isLoading) {
+        return <div className="">Loading...</div>;
+    }
+    console.log("isAuthenticated? " + isAuthenticated);
+    return (isAuthenticated ? component : <Navigate to="/login" />);
 };
 
 export default PrivateRoute;

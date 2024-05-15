@@ -3,12 +3,10 @@ import { fetchAsUser } from "../util/api";
 import { getAccessToken } from '../util/auth';
 
 /**
- * Returns true or false is the user is logged in.
- * 
- * Login status is determined using the current access token.
+ * Returns a list of all the projects.
  */
-export const useLoginStatus = async () => {
-    let isAuthenticated;
+export const useProjects = async () => {
+    let projects;
     const options = {
         method: "GET",
         headers: {
@@ -17,12 +15,11 @@ export const useLoginStatus = async () => {
         },
     }
     await fetchAsUser(
-        "/api/user/status/",
+        "/api/projects/",
         options  
     )
-        .then(response => {
-            isAuthenticated = response.ok
-        })
+        .then(response => response.json())
+        .then(data => projects = data)
 
-    return isAuthenticated;
+    return projects;
 };

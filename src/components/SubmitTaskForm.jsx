@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { fetchFromApi } from "../util/api.js";
+import { useProjects } from '../hooks/useProjects.js';
 
 const SubmitTaskForm = () => {
-    const [projects, setProjects] = useState([]);
+    // const [projects, setProjects] = useProjects();
 
     return (
         <form className="bg-gradient-to-b from-cyan-400/5 to-blue-500/10 rounded-lg px-4 py-3 inline-block">

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { fetchFromApi } from "../util/api";
 import { setAccessToken } from "../util/auth";
 import { useNavigate } from "react-router-dom";
+import { useAuthentication } from "../hooks/useAuthentication";
 
 const LoginContainer = () => {
     const navigate = useNavigate();
@@ -23,11 +24,8 @@ const LoginContainer = () => {
             .then(response => { return response.json(); })
             .then(data => {
                 if ("access" in data && "refresh" in data) {
+                    console.log("valid token");
                     setAccessToken(data.access);
-                    setIsLoginValid(true);
-                    // no refresh for now lol
-                    // yes, this means you'll have to login constantly
-
                     navigate("/");
                 }
                 // something went wrong
