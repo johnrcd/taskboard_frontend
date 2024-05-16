@@ -24,7 +24,6 @@ const LoginContainer = () => {
             .then(response => { return response.json(); })
             .then(data => {
                 if ("access" in data && "refresh" in data) {
-                    console.log("valid token");
                     setAccessToken(data.access);
                     navigate("/");
                 }

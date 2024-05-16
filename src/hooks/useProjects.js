@@ -5,8 +5,9 @@ import { getAccessToken } from '../util/auth';
 /**
  * Returns a list of all the projects.
  */
-export const useProjects = async () => {
-    let projects;
+export const useProjects = () => {
+    const [projects, setProjects] = useState([]);
+
     const options = {
         method: "GET",
         headers: {
@@ -14,12 +15,19 @@ export const useProjects = async () => {
             "Authorization": ("Bearer " + getAccessToken()),
         },
     }
-    await fetchAsUser(
-        "/api/projects/",
-        options  
-    )
-        .then(response => response.json())
-        .then(data => projects = data)
+
+    useEffect(() => {
+        const fetchProjects = async() => {
+            await fetchAsUser(
+                "/api/projects/",
+                options  
+            )
+                .then(response => { return response.json(); })
+                .then(data => { setProjects(data); })
+        };
+        fetchProjects();
+        return;
+    }, [])
 
     return projects;
 };

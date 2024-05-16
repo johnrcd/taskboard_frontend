@@ -15,7 +15,7 @@ const PrivateRoute = ({ component }) => {
     if (isLoading) {
         return <div className="">Loading...</div>;
     }
-    console.log("isAuthenticated? " + isAuthenticated);
+
     return (isAuthenticated ? component : <Navigate to="/login" />);
 };
 

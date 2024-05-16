@@ -3,7 +3,7 @@ import { fetchFromApi } from "../util/api.js";
 import { useProjects } from '../hooks/useProjects.js';
 
 const SubmitTaskForm = () => {
-    // const [projects, setProjects] = useProjects();
+    const projects = useProjects();
 
     return (
         <form className="bg-gradient-to-b from-cyan-400/5 to-blue-500/10 rounded-lg px-4 py-3 inline-block">
@@ -14,6 +14,7 @@ const SubmitTaskForm = () => {
                     bg-slate-400/10
                     text-stone-300
                     rounded-md p-1
+                    w-full
                 "
                 type="text"
                 id="summary"
@@ -86,8 +87,13 @@ const SubmitTaskForm = () => {
 
             {/* PROJECT INPUT */}
             <label className="text-stone-100" htmlFor="project">Project</label><br />
-            <select name="project" id="project">
-                {/* TODO: fetch and add projects as select options */}
+            <select name="project" id="project" className="text-stone-300 bg-slate-900 text-sm">
+                <option value="">None</option>
+                {projects.length !== 0 &&
+                    projects.map((project, index) => 
+                        <option id={"project_" + index} value={project}>{project}</option>
+                    )
+                }
             </select> <br />
             <p className="text-stone-400">The project that this task is connected to.</p>
             <p className="text-stone-400">
@@ -103,6 +109,7 @@ const SubmitTaskForm = () => {
                     bg-slate-400/10
                     text-stone-300
                     rounded-md p-1
+                    w-full
                 "
                 type="text"
                 id="description"
