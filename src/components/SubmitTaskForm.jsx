@@ -2,11 +2,39 @@ import { useState, useEffect } from 'react';
 import { fetchFromApi } from "../util/api.js";
 import { useProjects } from '../hooks/useProjects.js';
 
-const SubmitTaskForm = () => {
+const SubmitTaskForm = ({onSubmitTaskHandler}) => {
     const projects = useProjects();
+    const [characterCount, setCharacterCount] = useState(0);
+    
+    // NOTE: server uses max count of 4095 (for description)
+    // but, I think that's weird so I made it a round number
+    const maxCharacterCount = 4000;
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        // https://react.dev/reference/react-dom/components/select#reading-the-select-box-value-when-submitting-a-form
+        const form = e.target;
+        const formData = new FormData(form); // i did not know you could do this
+        const data = {};
+
+        formData.forEach((value, key) => data[key] = value); // love prototyping
+
+        console.log(data);
+
+        // TODO: submit task form handler
+        // onSubmitTaskHandler(
+        //     data.summary,
+        //     data.type,
+        //     data.project,
+        //     data.description
+        // );
+    }
+
+    function handleDescriptionOnKeyUp(e) {
+        setCharacterCount(e.target.value.length);
+    }
     return (
-        <form className="bg-gradient-to-b from-cyan-400/5 to-blue-500/10 rounded-lg px-4 py-3 inline-block">
+        <form className="bg-gradient-to-b from-cyan-400/5 to-blue-500/10 rounded-lg px-4 py-3 inline-block" onSubmit={handleSubmit}>
             {/* SUMMARY INPUT */}
             <label className="text-stone-100" htmlFor="summary">Summary</label><br />
             <input
@@ -19,6 +47,7 @@ const SubmitTaskForm = () => {
                 type="text"
                 id="summary"
                 name="summary"
+                maxLength={255}
             /><br />
             <p className="text-stone-400">Provide a brief overview of your task. Ideally, 1-2 sentences.</p>
 
@@ -28,7 +57,7 @@ const SubmitTaskForm = () => {
             <label className="text-stone-100" htmlFor="type">Type</label><br />
 
             <input
-                className="w-3 h-3 bg-zinc-950"
+                className="w-3 h-3 bg-zinc-950 "
                 type="radio"
                 id="type"
                 name="type"
@@ -114,8 +143,33 @@ const SubmitTaskForm = () => {
                 type="text"
                 id="description"
                 name="description"
+                maxLength={4000}
+                rows={5}
+                placeholder="Provide a description of the task here..."
+                onInput={handleDescriptionOnKeyUp}
             >
-            </textarea><br />
+            </textarea>
+            
+            <br />  {/* my poor use of br tags will haunt me. but not today. */}
+
+            <p className="text-stone-400">Remaining Characters: {maxCharacterCount - characterCount}</p>
+
+            <br />
+            <div className="flex justify-center">
+                <button
+                    className="
+                        bg-cyan-800 hover:bg-cyan-700 
+                        text-white font-bold
+                        py-2 px-4
+                        border-b-4 border-sky-900
+                        hover:border-sky-800
+                        rounded
+                    "
+                    type="submit"
+                >
+                    Submit Task
+                </button>
+            </div>
         </form>
     );
 };
