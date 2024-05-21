@@ -1,5 +1,6 @@
 import MainHeader from "../components/MainHeader";
 import SubmitTaskForm from "../components/SubmitTaskForm";
+import SubmitTaskContainer from "../containers/SubmitTaskContainer";
 
 const SubmitTask = () => {
     return (
@@ -7,7 +8,7 @@ const SubmitTask = () => {
             <div className="flex align-center flex-col">
                 <MainHeader />
                 <div className="flex justify-center flex-col">
-                    <SubmitTaskForm />
+                    <SubmitTaskContainer />
                 </div>
             </div>
         </div>

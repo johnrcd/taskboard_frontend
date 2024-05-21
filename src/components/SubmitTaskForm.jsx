@@ -21,13 +21,12 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
 
         console.log(data);
 
-        // TODO: submit task form handler
-        // onSubmitTaskHandler(
-        //     data.summary,
-        //     data.type,
-        //     data.project,
-        //     data.description
-        // );
+        onSubmitTaskHandler(
+            data.summary,
+            data.description,
+            data.project,
+            data.type
+        );
     }
 
     function handleDescriptionOnKeyUp(e) {
@@ -48,6 +47,7 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 id="summary"
                 name="summary"
                 maxLength={255}
+                required
             /><br />
             <p className="text-stone-400">Provide a brief overview of your task. Ideally, 1-2 sentences.</p>
 
@@ -147,6 +147,7 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 rows={5}
                 placeholder="Provide a description of the task here..."
                 onInput={handleDescriptionOnKeyUp}
+                required
             >
             </textarea>
             
