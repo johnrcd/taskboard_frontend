@@ -1,4 +1,9 @@
-const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status, description, comments, style}) => {
+const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
+    function handlePostCommentButton(e) {
+        e.preventDefault();
+        onPostCommentClick(uuid);
+    }
+    
     return(
         <div className={
             // add spaces at the end of each string
@@ -68,6 +73,21 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         </div>
                         )
                     }
+                        <button
+                            className="
+                                bg-cyan-800 hover:bg-cyan-700 
+                                text-white
+                                py-1 px-2
+                                mt-2
+                                border-b-2 border-sky-900
+                                hover:border-sky-800
+                                rounded
+                            "
+                            type="button"
+                            onClick={handlePostCommentButton}
+                        >
+                        Post a Comment...
+                    </button>
                 </div>
             }
             {summary === "" &&

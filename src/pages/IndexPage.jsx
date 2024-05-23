@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { createSearchParams } from 'react-router-dom';
 
 import { fetchFromApi } from "../util/api.js";
 
@@ -8,6 +10,7 @@ import TaskDetails from '../components/TaskDetails.jsx';
 
 const IndexPage = () => {
     const [currentTask, setCurrentTask] = useState({});
+    const navigate = useNavigate();
 
     const taskClickHandler = async (uuid) => {
         await fetchFromApi("/api/tasks/" + uuid)
@@ -37,6 +40,15 @@ const IndexPage = () => {
                 });
             });
     }
+
+    const postCommentClickHandler = (uuid) => {
+        navigate({
+            pathname: "comment",
+            search: createSearchParams({
+                uuid: {uuid}
+            }).toString()
+        });
+    };
 
     return(
         <div className="bg-slate-900 min-h-screen flex justify-center">
@@ -71,6 +83,7 @@ const IndexPage = () => {
                             md:w-70
                             md:h-[70vh]
                             md:overflow-y-scroll"
+                        onPostCommentClick = {(uuid) => postCommentClickHandler(uuid)}
                     />
                 </div>
                 {/* <MainFooter /> */}
