@@ -145,7 +145,7 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 type="text"
                 id="description"
                 name="description"
-                maxLength={4000}
+                maxLength={maxCharacterCount}
                 rows={5}
                 placeholder="Provide a description of the task here..."
                 onInput={handleDescriptionOnKeyUp}

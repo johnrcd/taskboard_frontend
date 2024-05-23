@@ -1,3 +1,4 @@
+import MainHeader from "../components/MainHeader";
 import PostCommentContainer from "../containers/PostCommentContainer";
 
 const PostComment = () => {

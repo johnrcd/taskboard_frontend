@@ -42,12 +42,7 @@ const IndexPage = () => {
     }
 
     const postCommentClickHandler = (uuid) => {
-        navigate({
-            pathname: "comment",
-            search: createSearchParams({
-                uuid: {uuid}
-            }).toString()
-        });
+        navigate("comment?uuid=" + uuid);
     };
 
     return(
