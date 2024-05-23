@@ -34,6 +34,8 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
     }
     return (
         <form className="bg-gradient-to-b from-cyan-400/5 to-blue-500/10 rounded-lg px-4 py-3 inline-block" onSubmit={handleSubmit}>
+            <h2 className="text-stone-100 text-2xl text-center font-bold">Submit a Task</h2>
+            
             {/* SUMMARY INPUT */}
             <label className="text-stone-100" htmlFor="summary">Summary</label><br />
             <input
