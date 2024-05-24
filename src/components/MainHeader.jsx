@@ -71,7 +71,7 @@ const MainHeader = () => {
 
                     fixed md:hidden
                     right-0 top-0
-                    bg-gray-900
+                    bg-gradient-to-r from-cyan-950 to-blue-950
                     w-full
                 ">
                     <div className="flex flex-row justify-around">
@@ -87,7 +87,7 @@ const MainHeader = () => {
                     <ul
                         className={
                             isNavigationEnabled
-                            ? 'block md:hidden right-0 top-0 w-full border-r border-r-gray-900 bg-slate-900'
+                            ? 'block md:hidden right-0 top-0 w-full'
                             : 'h-[0%] fixed bottom-0 left-[-100%] top-[-100%]'
                         }
                     >
@@ -101,6 +101,9 @@ const MainHeader = () => {
                             </Link>
                         </li>
                     ))}
+                        <li className="flex-1 text-base font-normal text-center text-stone-400 m-auto mt-4">
+                        {isAuthenticated ?  "Logged in as " + username + "." : "You are not logged in."}
+                        </li> 
                     </ul>
                 </nav>
             </header>
