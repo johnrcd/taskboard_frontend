@@ -56,7 +56,7 @@ const MainHeader = () => {
                     </nav>
 
                     <p className="flex-1 text-base font-normal text-right text-stone-300 m-auto">
-                        {isAuthenticated ?  username : "Not Logged In"}
+                        {!isLoading && (isAuthenticated ?  username : "Not Logged In")}
                     </p> 
                 </div>
             </header>
