@@ -8,10 +8,7 @@ const MainHeader = () => {
     const [isNavigationEnabled, setIsNavigatorEnabled] = useState(false);
     const {isAuthenticated, isLoading} = useAuthentication();
     const username = getUsername();
-
-    console.log("am i authenticated");
-    console.log(isAuthenticated);
-
+    
     const handleNav = () => {
         setIsNavigatorEnabled(!isNavigationEnabled);
     };

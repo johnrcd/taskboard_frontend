@@ -1,3 +1,5 @@
+import TaskComment from "./TaskComment";
+
 const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
     function handlePostCommentButton(e) {
         e.preventDefault();
@@ -52,25 +54,12 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                     <h4 className="text-slate-200 text-normal font-bold tracking-tight mt-5">Comments</h4>
                     {
                         comments.map((comment, index) =>
-                        <div
-                            className={
-                                "border-t-2 mt-2 p-2" +
-                                " border-slate-400/50 " +
-                                " bg-slate-400/5 " +
-                                "comment"
-                            }
+                        <TaskComment
+                            poster={comment.poster}
+                            dateCreated={new Date(comment.date_created).toLocaleString()}
+                            content={comment.content}
                             key={"comment_" + uuid + "_" + index}
-                        >
-                            <h4 className="text-slate-200 text-normal font-bold tracking-tight inline-block">
-                                {comment.poster}
-                            </h4>
-                            <p className="text-slate-400 text-sm pl-2 tracking-tight inline-block">
-                                {new Date(comment.date_created).toLocaleString()}
-                            </p>
-                            <p className="text-slate-300 text-normal tracking-tight max-w-xl">
-                                {comment.content}
-                            </p>
-                        </div>
+                        />
                         )
                     }
                         <button
