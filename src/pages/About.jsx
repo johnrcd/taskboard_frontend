@@ -3,9 +3,9 @@ import MainHeader from "../components/MainHeader";
 const About = () => {
     return (
         <div className="bg-slate-900 min-h-screen flex justify-center">
-            <div className="w-full max-w-2xl text-slate-200">
+            <div className="w-full max-w-7xl text-slate-200 ml-2 mr-2">
                 <MainHeader />
-                <main className="bg-gradient-to-b from-cyan-400/5 to-blue-500/10 rounded-lg px-4 py-3">
+                <main className="max-w-xl m-auto mt-6">
                     <p>
                         <b>Welcome to the Taskboard!</b>
                     </p> <br />

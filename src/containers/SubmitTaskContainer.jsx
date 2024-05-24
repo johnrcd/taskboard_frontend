@@ -36,11 +36,11 @@ const SubmitTaskContainer = () => {
     };
 
     return(
-        <>
+        <div className="w-full max-w-lg m-auto mt-2">
             <SubmitTaskForm
                 onSubmitTaskHandler={onSubmitTaskHandler}
             />
-        </>
+        </div>
     )
 };
 

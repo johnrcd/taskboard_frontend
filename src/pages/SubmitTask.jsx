@@ -5,7 +5,7 @@ import SubmitTaskContainer from "../containers/SubmitTaskContainer";
 const SubmitTask = () => {
     return (
         <div className="bg-slate-900 min-h-screen flex justify-center">
-            <div className="flex align-center flex-col">
+            <div className="w-full max-w-7xl text-slate-200 ml-2 mr-2">
                 <MainHeader />
                 <div className="flex justify-center flex-col">
                     <SubmitTaskContainer />

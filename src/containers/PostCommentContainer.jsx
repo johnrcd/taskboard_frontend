@@ -2,7 +2,9 @@ import PostCommentForm from "../components/PostCommentForm";
 
 const PostCommentContainer = () => {
     return (
-        <PostCommentForm />
+        <div className="max-w-lg m-auto mt-2">
+            <PostCommentForm />
+        </div>
     )
 }
 

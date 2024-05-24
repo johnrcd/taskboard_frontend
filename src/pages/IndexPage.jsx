@@ -47,7 +47,7 @@ const IndexPage = () => {
 
     return(
         <div className="bg-slate-900 min-h-screen flex justify-center">
-            <div className="w-full max-w-screen-xl">
+            <div className="flex flex-col w-full max-w-7xl text-slate-200 ml-2 mr-2">
                 <MainHeader />
                 <div className="
                     flex
@@ -59,7 +59,7 @@ const IndexPage = () => {
                         className="
                             flex-none 
                             w-full md:w-[360px] 
-                            h-[30vh] md:h-[70vh] 
+                            h-[30vh] md:h-[85vh] 
                             overflow-y-scroll "
                         onTaskClick={(uuid) => taskClickHandler(uuid)}
                     />
@@ -76,7 +76,7 @@ const IndexPage = () => {
                         dateCreated = {currentTask.dateCreated || ""}
                         style="
                             md:w-70
-                            md:h-[70vh]
+                            md:h-[85vh]
                             md:overflow-y-scroll"
                         onPostCommentClick = {(uuid) => postCommentClickHandler(uuid)}
                     />

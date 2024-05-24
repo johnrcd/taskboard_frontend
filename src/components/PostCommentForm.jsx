@@ -11,7 +11,7 @@ const PostCommentForm = () => {
     }
 
     return(
-        <form className="bg-gradient-to-b from-cyan-400/5 to-blue-500/10 rounded-lg px-4 py-3 inline-block">
+        <form>
             <textarea
                 className="
                     box-border resize

@@ -12,10 +12,33 @@
 // i think this solution is OK for this scale of application
 // but i should probably look into better token management
 
+/**
+ * Sets the access token in local storage.
+ */
 export const setAccessToken = (token) => {
     localStorage.setItem("access_token", token);
 };
 
+/**
+ * Returns the access token in local storage.
+ */
 export const getAccessToken = () => {
     return localStorage.getItem("access_token");
 };
+
+/**
+ * Sets the username property in local storage.
+ */
+export const setUsername = (username) => {
+    localStorage.setItem("username", username);
+}
+
+/**
+ * Returns the username of the current user.
+ * 
+ * Note that this property does not check if the user is actually logged in.
+ * To check if the user is logged in, use the useAuthentication hook.
+ */
+export const getUsername = () => {
+    return localStorage.getItem("username");
+}

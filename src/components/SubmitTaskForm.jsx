@@ -33,14 +33,14 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
         setCharacterCount(e.target.value.length);
     }
     return (
-        <form className="bg-gradient-to-b from-cyan-400/5 to-blue-500/10 rounded-lg px-4 py-3 inline-block" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <h2 className="text-stone-100 text-2xl text-center font-bold">Submit a Task</h2>
             
             {/* SUMMARY INPUT */}
             <label className="text-stone-100" htmlFor="summary">Summary</label><br />
             <input
                 className="
-                    bg-slate-400/10
+                    bg-slate-800
                     text-stone-300
                     rounded-md p-1
                     w-full
@@ -118,7 +118,7 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
 
             {/* PROJECT INPUT */}
             <label className="text-stone-100" htmlFor="project">Project</label><br />
-            <select name="project" id="project" className="text-stone-300 bg-slate-900 text-sm">
+            <select name="project" id="project" className="text-stone-300 bg-slate-800 rounded-md">
                 <option value="">None</option>
                 {projects.length !== 0 &&
                     projects.map((project, index) => 

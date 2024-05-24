@@ -1,7 +1,7 @@
 import LoginForm from "../components/LoginForm";
 import { useState } from 'react';
 import { fetchFromApi } from "../util/api";
-import { setAccessToken } from "../util/auth";
+import { setAccessToken, setUsername } from "../util/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuthentication } from "../hooks/useAuthentication";
 
@@ -23,8 +23,10 @@ const LoginContainer = () => {
         await fetchFromApi("/api/token/", options) // need trailing slash for api
             .then(response => { return response.json(); })
             .then(data => {
+                console.log(data);
                 if ("access" in data && "refresh" in data) {
                     setAccessToken(data.access);
+                    setUsername(data.username);
                     navigate("/");
                 }
                 // something went wrong
