@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { createSearchParams } from 'react-router-dom';
 
+import { useAuthentication } from '../hooks/useAuthentication.js';
+
 import { fetchFromApi } from "../util/api.js";
 
 import MainHeader from "../components/MainHeader.jsx";
@@ -10,6 +12,7 @@ import TaskDetails from '../components/TaskDetails.jsx';
 
 const IndexPage = () => {
     const [currentTask, setCurrentTask] = useState({});
+    const {isAuthenticated, isLoading} = useAuthentication();
     const navigate = useNavigate();
 
     const taskClickHandler = async (uuid) => {
@@ -42,7 +45,12 @@ const IndexPage = () => {
     }
 
     const postCommentClickHandler = (uuid) => {
-        navigate("comment?uuid=" + uuid);
+        if (isAuthenticated) {
+            navigate("comment?uuid=" + uuid);
+        }
+        else {
+            navigate("/login");
+        }
     };
 
     return(

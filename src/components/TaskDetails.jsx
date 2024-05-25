@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router";
+
 import TaskComment from "./TaskComment";
+import PostCommentContainer from "../containers/PostCommentContainer";
+
 
 const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
+    const navigate = useNavigate();
     function handlePostCommentButton(e) {
         e.preventDefault();
         onPostCommentClick(uuid);
@@ -62,21 +67,8 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         />
                         )
                     }
-                        <button
-                            className="
-                                bg-cyan-800 hover:bg-cyan-700 
-                                text-white
-                                py-1 px-2
-                                mt-2
-                                border-b-2 border-sky-900
-                                hover:border-sky-800
-                                rounded
-                            "
-                            type="button"
-                            onClick={handlePostCommentButton}
-                        >
-                        Post a Comment...
-                    </button>
+                    <br />
+                    <PostCommentContainer />
                 </div>
             }
             {summary === "" &&
