@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-
-import { fetchFromApi } from "../util/api";
-
 import PostCommentForm from "../components/PostCommentForm";
 
-const PostCommentContainer = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+const PostCommentContainer = ({onFormSubmitHandler}) => {
+    function handleFormSubmit(content) {
+        onFormSubmitHandler(content);
+    }
 
     return (
         <div>
-            <PostCommentForm />
+            <PostCommentForm
+                onFormSubmitHandler={(content) => handleFormSubmit(content)}
+            />
         </div>
     )
 }

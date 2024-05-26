@@ -1,17 +1,12 @@
-import { useNavigate } from "react-router";
-
 import TaskComment from "./TaskComment";
 import PostCommentContainer from "../containers/PostCommentContainer";
 
-
 const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
-    const navigate = useNavigate();
-    function handlePostCommentButton(e) {
-        e.preventDefault();
-        onPostCommentClick(uuid);
+    function handlePostCommentForm(content) {
+        onPostCommentClick(content, uuid);
     }
-    
-    return(
+
+    return (
         <div className={
             // add spaces at the end of each string
             "bg-gradient-to-b from-cyan-400/5 to-blue-500/10 " +
@@ -68,7 +63,9 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         )
                     }
                     <br />
-                    <PostCommentContainer />
+                    <PostCommentContainer
+                        onFormSubmitHandler={(uuid) => {handlePostCommentForm(uuid)}}
+                    />
                 </div>
             }
             {summary === "" &&

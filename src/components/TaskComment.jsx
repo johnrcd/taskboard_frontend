@@ -1,4 +1,4 @@
-const TaskComment = ({poster, dateCreated, content, key}) => {
+const TaskComment = ({poster, dateCreated, content, keyValue}) => {
     return (
         <article
             className={
@@ -7,7 +7,7 @@ const TaskComment = ({poster, dateCreated, content, key}) => {
                 " bg-slate-400/5 " +
                 "comment"
             }
-            key={key}
+            key={keyValue}
         >
             <h4 className="text-slate-200 text-normal font-bold tracking-tight inline-block">
                 {poster}

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchFromApi } from "../util/api.js";
 
-const PostCommentForm = ({onPostCommentHandler}) => {
+const PostCommentForm = ({onFormSubmitHandler}) => {
     const [characterCount, setCharacterCount] = useState(0);
 
     const maxCharacterCount = 250;
@@ -10,12 +9,19 @@ const PostCommentForm = ({onPostCommentHandler}) => {
         setCharacterCount(e.target.value.length);
     }
 
-    function handleSubmit(e) {
+    function handleFormSubmit(e) {
         e.preventDefault();
-        onPostCommentHandler(content);
+        const form = e.target;
+        const formData = new FormData(form); 
+        const data = {};
+
+        formData.forEach((value, key) => data[key] = value);
+
+        onFormSubmitHandler(data.content);
     }
-    return(
-        <form onSubmit={handleSubmit}>
+    
+    return (
+        <form onSubmit={handleFormSubmit}>
             <textarea
                 className="
                     box-border resize

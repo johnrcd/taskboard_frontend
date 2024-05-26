@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { createSearchParams } from 'react-router-dom';
 
 import { useAuthentication } from '../hooks/useAuthentication.js';
 
-import { fetchFromApi } from "../util/api.js";
+import { fetchFromApi, fetchAsUser } from "../util/api.js";
 
 import MainHeader from "../components/MainHeader.jsx";
 import TaskList from "../containers/TaskList.jsx";
@@ -44,13 +43,33 @@ const IndexPage = () => {
             });
     }
 
-    const postCommentClickHandler = (uuid) => {
-        if (isAuthenticated) {
-            navigate("comment?uuid=" + uuid);
-        }
-        else {
+    const handlePostCommentForm = async (content, uuid) => {
+        if (!isAuthenticated) {
             navigate("/login");
+            return;
         }
+
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify({
+                "content": content,
+                "task": uuid,
+            })
+        };
+
+        await fetchAsUser("/api/comments/", options)
+            .then(response => {
+                if (response.ok) {
+                    // refresh task details
+                    taskClickHandler(uuid);
+                }
+                else {
+                    alert("Something went wrong when attempting to post your comment...");
+                }
+            })
     };
 
     return(
@@ -87,7 +106,7 @@ const IndexPage = () => {
                             md:w-70
                             md:h-[85vh]
                             md:overflow-y-scroll"
-                        onPostCommentClick = {(uuid) => postCommentClickHandler(uuid)}
+                        onPostCommentClick = {(content, uuid) => handlePostCommentForm(content, uuid)}
                     />
                 </div>
                 {/* <MainFooter /> */}
