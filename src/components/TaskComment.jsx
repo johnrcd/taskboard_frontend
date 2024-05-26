@@ -15,7 +15,7 @@ const TaskComment = ({poster, dateCreated, content, keyValue}) => {
             <p className="text-slate-400 text-sm pl-2 tracking-tight inline-block">
                 {dateCreated}
             </p>
-            <p className="text-slate-300 text-normal tracking-tight max-w-xl">
+            <p className="text-slate-300 text-normal tracking-tight max-w-xl break-words">
                 {content}
             </p>
         </article>
