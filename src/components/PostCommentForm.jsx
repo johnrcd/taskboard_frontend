@@ -17,6 +17,10 @@ const PostCommentForm = ({onFormSubmitHandler}) => {
 
         formData.forEach((value, key) => data[key] = value);
 
+        // hackiest solution of all time
+        e.target.reset();
+        setCharacterCount(0)
+
         onFormSubmitHandler(data.content);
     }
     

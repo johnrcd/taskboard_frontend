@@ -5,6 +5,7 @@ import IndexPage from './pages/IndexPage';
 import About from './pages/About';
 import SubmitTask from './pages/SubmitTask';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 import Register from './pages/Register';
 
 export default function App() {    
@@ -15,6 +16,7 @@ export default function App() {
                 <Route path="/about"    element={<About />} />
                 <Route path="/submit"   element={<PrivateRoute component={<SubmitTask />}/>}/>
                 <Route path="/login"    element={<Login />} />
+                <Route path="/logout"   element={<Logout />} />
                 <Route path="/register" element={<Register />} />
             </Routes>
         </BrowserRouter>

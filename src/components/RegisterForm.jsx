@@ -1,18 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginForm = ({onLoginHandler, showError}) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+const RegisterForm = ({onRegisterHandler}) => {
+    const [username, setUsername]               = useState("");
+    const [password, setPassword]               = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
-        onLoginHandler(username, password);
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+        else onRegisterHandler(username, password);
     }
 
     return (
         <form className="bg-gradient-to-b from-cyan-400/10 to-blue-500/20 rounded-lg px-4 py-3 inline-block w-full" onSubmit={handleSubmit}>
-            <h2 className="text-stone-100 text-2xl font-bold text-center">Taskboard Login</h2> <br />
+            <h2 className="text-stone-100 text-2xl font-bold text-center">Create an Account</h2> <br />
             <label className="text-stone-200" htmlFor="username">Username</label><br />
             <input
                 className="
@@ -29,10 +34,12 @@ const LoginForm = ({onLoginHandler, showError}) => {
                 required
             /><br />
 
+            <br />
+
             <label className="text-stone-200" htmlFor="password">Password</label><br />
             <input
                 className="
-                bg-slate-900
+                    bg-slate-900
                     text-stone-300
                     rounded-md p-1
                     w-64
@@ -45,16 +52,23 @@ const LoginForm = ({onLoginHandler, showError}) => {
                 required
             /><br />
 
-            <br />
+            <label className="text-stone-200" htmlFor="confirmPassword">Confirm Password</label><br />
+            <input
+                className="
+                    bg-slate-900
+                    text-stone-300
+                    rounded-md p-1
+                    w-64
+                "
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={e => setConfirmPassword(e.target.value)}
+                required
+            /><br />
 
-            {showError &&
-            <>
-                <p className="text-stone-200 text-center">
-                    Username or password is invalid.
-                </p>
-                <br />
-            </>
-            }
+            <br />
 
             <div className="flex justify-center">
                 <button
@@ -68,19 +82,19 @@ const LoginForm = ({onLoginHandler, showError}) => {
                     "
                     type="submit"
                 >
-                    Login
+                    Register
                 </button>
             </div>
 
 
             <br /> <hr className="border-1 border-slate-500"/> <br />
 
-            <p className="text-stone-200 text-center">Don't have an account?</p>
+            <p className="text-stone-200 text-center">Already have an account?</p>
             <Link
                 className="px-3 hover:underline text-stone-200 hover:text-stone-100 text-center block font-bold"
-                to="/register"
+                to="/login"
             >
-                Register
+                Login
             </Link>
 
             <br />
@@ -97,4 +111,4 @@ const LoginForm = ({onLoginHandler, showError}) => {
     )
 };
 
-export default LoginForm;
+export default RegisterForm;
