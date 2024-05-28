@@ -3,10 +3,6 @@ import { fetchFromApi } from "../util/api.js";
 
 import TaskOverview from '../components/TaskOverview.jsx';
 
-
-/**
- * Exports the latest tasks.
- */
 const TaskList = ({onTaskClick, className}) => {
     const [tasks, setTasks] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);

@@ -1,5 +1,5 @@
 const TaskOverview = ({uuid, summary, onTaskClick}) => {
-    return(
+    return (
         <button className="
             w-full
             flex flex-col justify-between

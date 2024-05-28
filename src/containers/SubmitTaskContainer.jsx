@@ -1,7 +1,4 @@
-import LoginForm from "../components/LoginForm";
-import { useState } from 'react';
-import { fetchFromApi, fetchAsUser } from "../util/api";
-import { setAccessToken } from "../util/auth";
+import { fetchAsUser } from "../util/api";
 import { useNavigate } from "react-router-dom";
 import { useAuthentication } from "../hooks/useAuthentication";
 import SubmitTaskForm from "../components/SubmitTaskForm";

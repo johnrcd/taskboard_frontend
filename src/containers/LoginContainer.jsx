@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { fetchFromApi } from "../util/api";
 import { setAccessToken, setUsername } from "../util/auth";
 import { useNavigate } from "react-router-dom";
-import { useAuthentication } from "../hooks/useAuthentication";
 
 const LoginContainer = () => {
     const navigate = useNavigate();

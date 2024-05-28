@@ -1,9 +1,7 @@
 import RegisterForm from '../components/RegisterForm';
-import { useState } from 'react';
 import { fetchFromApi } from "../util/api";
 import { setAccessToken, setUsername } from "../util/auth";
 import { useNavigate } from "react-router-dom";
-import { useAuthentication } from "../hooks/useAuthentication";
 
 const RegisterContainer = () => {
     const navigate = useNavigate();
@@ -58,7 +56,7 @@ const RegisterContainer = () => {
                 "password": password,
             })
         };
-        
+
         await fetchFromApi("/api/token/", options)
             .then(response => { return response.json(); })
             .then(data => {

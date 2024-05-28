@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const PostCommentForm = ({onFormSubmitHandler}) => {
     const [characterCount, setCharacterCount] = useState(0);

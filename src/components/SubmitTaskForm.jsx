@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { fetchFromApi } from "../util/api.js";
+import { useState } from 'react';
 import { useProjects } from '../hooks/useProjects.js';
 
 const SubmitTaskForm = ({onSubmitTaskHandler}) => {

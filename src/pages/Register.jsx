@@ -1,5 +1,3 @@
-import LoginForm from "../components/LoginForm";
-import LoginContainer from "../containers/LoginContainer";
 import RegisterContainer from "../containers/RegisterContainer";
 
 const Register = () => {

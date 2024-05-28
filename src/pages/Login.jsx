@@ -1,4 +1,3 @@
-import LoginForm from "../components/LoginForm";
 import LoginContainer from "../containers/LoginContainer";
 
 const Login = () => {

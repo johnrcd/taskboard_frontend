@@ -1,5 +1,4 @@
 import MainHeader from "../components/MainHeader";
-import SubmitTaskForm from "../components/SubmitTaskForm";
 import SubmitTaskContainer from "../containers/SubmitTaskContainer";
 
 const SubmitTask = () => {
