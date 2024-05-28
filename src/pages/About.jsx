@@ -15,14 +15,29 @@ const About = () => {
                         want added, note down any issues that you find, or give ideas for new
                         projects.
                     </p> <br />
-
+                    <p> 
+                        By default, everyone has access to view the Taskboard. However, if you want
+                        to interact with the site, you'll need to register an account. This will
+                        give you the ability to submit tasks and post comments.
+                    </p> <br />
                     <hr className="border-1 border-slate-500"/> <br />
-
-                    <p className="text-slate-300">
-                        <b>NOTE:</b> This website is still being actively developed! Currently,
-                        you can view existing tasks, but there's no system in place to add new
-                        tasks yet.
-                    </p>
+                    <p> 
+                        The website is technically functional, but there's definitely a few
+                        features that could be added.
+                    </p> <br />
+                    <ul className="pl-4 list-disc list-inside">
+                        <li>User Profiles (including personalized lists for tasks you've created)</li>
+                        <li>Task Filtering (completion status, date posted, etc)</li>
+                        <li>Notifications (specifically for your tasks)</li>
+                    </ul> <br />
+                    <p> 
+                        I'll be working on this website when I can, but it won't longer be a super
+                        high priority for me to work on.
+                    </p> <br />
+                    <hr className="border-1 border-slate-500"/> <br />
+                    <p> 
+                        Created by Rovi Decena.
+                    </p> <br />
                 </main>
             </div>
         </div>
