@@ -29,10 +29,12 @@ const About = () => {
                         <li>User Profiles (including personalized lists for tasks you've created)</li>
                         <li>Task Filtering (completion status, date posted, etc)</li>
                         <li>Notifications (specifically for your tasks)</li>
+                        <li>Quality of Life (password reset, improve the ugly colours, idk)</li>
                     </ul> <br />
                     <p> 
-                        I'll be working on this website when I can, but it won't longer be a super
-                        high priority for me to work on.
+                        I'll be working on this website when I can, but stuff might get in the
+                        way -- we'll have to see. Either way, the website is up, so have fun with
+                        it!
                     </p> <br />
                     <hr className="border-1 border-slate-500"/> <br />
                     <p> 
