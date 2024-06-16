@@ -31,8 +31,18 @@ const RegisterContainer = () => {
                 if (!responseOk) {
                     // diasterclass error handling
                     // inb4 a new error type is introduced and i forget to handle it
+                    // NOTE: this has already happened
+                    
                     if ("username" in data) {
-                        throw new Error("Username " + username + " has already been taken.");
+                        console.log(data.username);
+                        if (data["username"][0].substring(0, 6) === "Ensure") {
+                            throw new Error("Username must be longer than 3 characters.")
+                        }
+                        else if (data["username"][0].includes("alphanumerical")) {
+                            throw new Error("Usernames must only have alphanumerical " +
+                                "characters, underscores, and dashes. They also cannot have spaces.")
+                        }
+                        else throw new Error("Username " + username + " has already been taken.");
                     }
                     else {
                         // terrible solution
