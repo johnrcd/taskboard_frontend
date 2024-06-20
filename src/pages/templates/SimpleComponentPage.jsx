@@ -1,4 +1,3 @@
-
 /**
  * The simple component template is used to render simple pages, with
  * one simple component. Content in the page is centered.

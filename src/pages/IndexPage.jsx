@@ -5,7 +5,7 @@ import { useAuthentication } from '../hooks/useAuthentication.js';
 
 import { fetchFromApi, fetchAsUser } from "../util/api.js";
 
-import MainHeader from "../components/MainHeader.jsx";
+import DefaultPage from "./templates/DefaultPage";
 import TaskList from "../containers/TaskList.jsx";
 import TaskDetails from '../components/TaskDetails.jsx';
 
@@ -73,45 +73,41 @@ const IndexPage = () => {
     };
 
     return(
-        <div className="bg-slate-900 min-h-screen flex justify-center">
-            <div className="flex flex-col w-full max-w-7xl text-slate-200 ml-2 mr-2">
-                <MainHeader />
-                <div className="
-                    flex
-                    space-x-0 md:space-x-3 
-                    space-y-3 md:space-y-0
-                    flex-col md:flex-row
-                    mt-2 md:mt-0
-                ">
-                    <TaskList
-                        className="
-                            flex-none 
-                            w-full md:w-[360px] 
-                            h-[30vh] md:h-[85vh] 
-                            overflow-y-scroll "
-                        onTaskClick={(uuid) => taskClickHandler(uuid)}
-                    />
-                    <TaskDetails
-                        uuid        = {currentTask.uuid        || ""}
-                        summary     = {currentTask.summary     || ""}
-                        author      = {currentTask.author      || ""}
-                        category    = {currentTask.category    || ""}
-                        project     = {currentTask.project     || ""}
-                        type        = {currentTask.type        || ""}
-                        status      = {currentTask.status      || ""}
-                        description = {currentTask.description || ""}
-                        comments    = {currentTask.comments    || ""}
-                        dateCreated = {currentTask.dateCreated || ""}
-                        style="
-                            md:w-70
-                            md:h-[85vh]
-                            md:overflow-y-scroll"
-                        onPostCommentClick = {(content, uuid) => handlePostCommentForm(content, uuid)}
-                    />
-                </div>
-                {/* <MainFooter /> */}
+        <DefaultPage>
+            <div className="
+                flex
+                space-x-0 md:space-x-3 
+                space-y-3 md:space-y-0
+                flex-col md:flex-row
+                mt-2 md:mt-0
+            ">
+                <TaskList
+                    className="
+                        flex-none 
+                        w-full md:w-[360px] 
+                        h-[30vh] md:h-[85vh] 
+                        overflow-y-scroll "
+                    onTaskClick={(uuid) => taskClickHandler(uuid)}
+                />
+                <TaskDetails
+                    uuid        = {currentTask.uuid        || ""}
+                    summary     = {currentTask.summary     || ""}
+                    author      = {currentTask.author      || ""}
+                    category    = {currentTask.category    || ""}
+                    project     = {currentTask.project     || ""}
+                    type        = {currentTask.type        || ""}
+                    status      = {currentTask.status      || ""}
+                    description = {currentTask.description || ""}
+                    comments    = {currentTask.comments    || ""}
+                    dateCreated = {currentTask.dateCreated || ""}
+                    style="
+                        md:w-70
+                        md:h-[85vh]
+                        md:overflow-y-scroll"
+                    onPostCommentClick = {(content, uuid) => handlePostCommentForm(content, uuid)}
+                />
             </div>
-        </div>
+        </DefaultPage>
     )
 };
 

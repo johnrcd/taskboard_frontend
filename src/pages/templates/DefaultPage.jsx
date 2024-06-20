@@ -1,4 +1,4 @@
-import MainHeader from "../components/MainHeader";
+import MainHeader from "../../components/MainHeader";
 
 /**
  * The default page template has a header at the top, and limits the width of

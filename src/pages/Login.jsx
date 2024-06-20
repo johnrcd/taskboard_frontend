@@ -1,12 +1,11 @@
 import LoginContainer from "../containers/LoginContainer";
+import SimpleComponentPage from "./templates/SimpleComponentPage";
 
 const Login = () => {
     return (
-        <div className="bg-slate-900 min-h-screen flex justify-center">
-            <div className="flex align-center flex-col justify-center">
-                <LoginContainer />
-            </div>
-        </div>
+        <SimpleComponentPage>
+            <LoginContainer />
+        </SimpleComponentPage>
     )
 };
 
