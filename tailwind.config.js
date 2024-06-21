@@ -6,13 +6,16 @@ export default {
             colors: {
                 primary: {
                     text: "#000000",
+                    tooltip: "#555555",
                     background: "#F0F0F0",
                     border: "#C9C9C9",
                     accent: "#EB9623",
                 },
                 offset: {
                     text: "#F9F9F9",
+                    tooltip: "#555555",
                     background: "#181718",
+                    border: "#C9C9C9",
                     accent: "#EB9623",
                 },
             },

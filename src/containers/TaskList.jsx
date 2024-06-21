@@ -27,7 +27,7 @@ const TaskList = ({onTaskClick, className}) => {
     return (
         <div className={
             className + " " +
-            "flex flex-col space-y-2"
+            "flex flex-col space-y-2 bg-primary-border p-2"
         }>
         {isLoaded &&
         tasks.map((task, index) =>

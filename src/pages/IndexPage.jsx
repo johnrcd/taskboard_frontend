@@ -76,10 +76,7 @@ const IndexPage = () => {
         <DefaultPage>
             <div className="
                 flex
-                space-x-0 md:space-x-3 
-                space-y-3 md:space-y-0
                 flex-col md:flex-row
-                mt-2 md:mt-0
             ">
                 <TaskList
                     className="

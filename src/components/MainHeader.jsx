@@ -34,7 +34,7 @@ const MainHeader = () => {
 
             <header className="
                 text-base font-normal text-offset-text
-                mb-2 p-2 flex-none
+                p-2 flex-none
                 bg-offset-background
                 hidden md:block
             ">
@@ -46,11 +46,11 @@ const MainHeader = () => {
                     </h1>
                     
                     <nav className="m-auto">
-                        <ul className="hidden md:flex justify-center divide-x divide-stone-300/30">
+                        <ul className="hidden md:flex justify-center divide-x divide-offset-tooltip">
                         {navigationLinks.map(item => (
                             <li key={item.id}>
                                 <Link
-                                    className="px-3 hover:underline hover:text-stone-100"
+                                    className="h-full px-3 hover:bg-offset-accent hover:text-offset-background"
                                     to={item.path}
                                 >
                                     {item.text}

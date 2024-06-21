@@ -3,8 +3,8 @@ const TaskOverview = ({uuid, summary, onTaskClick}) => {
         <button className="
             w-full
             flex flex-col justify-between
-            bg-gradient-to-r from-cyan-500/10 to-blue-500/10
-            hover:bg-gradient-to-r hover:from-cyan-500/30 hover:to-blue-500/30
+            bg-primary-background
+            hover:bg-primary-accent
             rounded-lg
             px-4 py-3
             ring-1 ring-slate-900/5
@@ -13,10 +13,10 @@ const TaskOverview = ({uuid, summary, onTaskClick}) => {
             onClick={() => onTaskClick(uuid)}
         >
             <div className="grow flex flex-col text-left">
-                <p className="text-slate-400 text-sm tracking-tight">
+                <p className="text-primary-tooltip text-sm tracking-tight">
                     uuid: {uuid}
                 </p>
-                <h3 className="text-white text-normal font-normal m-0 p-0 line-clamp-1">
+                <h3 className="text-primary-text text-normal font-normal m-0 p-0 line-clamp-1">
                     {summary}
                 </h3>
             </div>
