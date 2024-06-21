@@ -11,7 +11,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
             // add spaces at the end of each string
             "bg-primary-background " +
             "px-4 py-3 " +
-            "shadow-xl " +
+            // "shadow-xl " +
             "w-full " +
             "block " +
             style
@@ -22,16 +22,16 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         {summary}
                     </h3>
 
-                    <ul className="text-xs flex flex-wrap flex-row space-x-1 text-primary-tooltip m-0 mt-1">
-                        <li className="bg-cyan-500/30 font-normal py-1 px-2 mb-1 rounded inline-block">
+                    <ul className="text-xs flex flex-wrap flex-row space-x-1 text-note-text m-0 mt-1">
+                        <li className="bg-note-background border-t-[3px] border-note-border font-normal py-1 px-2 mb-1 inline-block">
                             Type:&nbsp;
                             <div className="inline-block">{type}</div>
                         </li>
-                        <li className="bg-sky-500/30 font-normal py-1 px-2 mb-1 rounded inline-block">
+                        <li className="bg-note-background border-t-[3px] border-note-border font-normal py-1 px-2 mb-1 inline-block">
                             Project:&nbsp;
                             <div className="inline-block">{project}</div>
                         </li>
-                        <li className="bg-blue-500/30 font-normal py-1 px-2 mb-1 rounded inline-block">
+                        <li className="bg-note-background border-t-[3px] border-note-border font-normal py-1 px-2 mb-1 inline-block">
                             Status:&nbsp;
                             <div className="inline-block">{status}</div>
                         </li>

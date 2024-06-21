@@ -18,6 +18,12 @@ export default {
                     border: "#C9C9C9",
                     accent: "#EB9623",
                 },
+                note: {
+                    text: "#000000",
+                    tooltip: "#555555",
+                    background: "#FCE8B1",
+                    border: "#EB9623",
+                }
             },
         },
         container: {
