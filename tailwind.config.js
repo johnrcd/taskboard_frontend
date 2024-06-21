@@ -5,26 +5,15 @@ export default {
         extend: {
             colors: {
                 primary: {
-                    text: "#ffffff",
-                    background: "#ffffff",
-                    accent: "#ffffff",
-                    button: {
-                        text: "#ffffff",
-                        background: "#ffffff",
-                        hover: "#ffffff",
-                        selected: "#ffffff",
-                    },
+                    text: "#000000",
+                    background: "#F0F0F0",
+                    border: "#C9C9C9",
+                    accent: "#EB9623",
                 },
-                overlay: {
-                    text: "#ffffff",
-                    background: "#ffffff",
-                    accent: "#ffffff",
-                    button: {
-                        text: "#ffffff",
-                        background: "#ffffff",
-                        hover: "#ffffff",
-                        selected: "#ffffff",
-                    },
+                offset: {
+                    text: "#F9F9F9",
+                    background: "#181718",
+                    accent: "#EB9623",
                 },
             },
         },

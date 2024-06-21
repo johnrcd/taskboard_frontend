@@ -33,16 +33,15 @@ const MainHeader = () => {
             {/* Desktop Navigation */}
 
             <header className="
-                text-base font-normal text-stone-300
-                mt-2 mb-2 p-2 flex-none
-                bg-gradient-to-r from-cyan-500/10 to-blue-500/10
-                rounded-lg
+                text-base font-normal text-offset-text
+                mb-2 p-2 flex-none
+                bg-offset-background
                 hidden md:block
             ">
                 <div className="
                     flex
                 ">
-                    <h1 className="flex-1 text-2xl font-bold text-left text-stone-100 block">
+                    <h1 className="flex-1 text-2xl font-bold text-left text-offset-text block">
                         The Taskboard
                     </h1>
                     

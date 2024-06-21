@@ -6,8 +6,8 @@ import MainHeader from "../../components/MainHeader";
  */
 const DefaultPage = ({children}) => {
     return (
-        <div className="bg-slate-900 min-h-screen flex justify-center">
-            <div className="w-full max-w-7xl text-slate-200 ml-2 mr-2 mb-4">
+        <div className="bg-primary-background min-h-screen flex justify-center">
+            <div className="w-full max-w-7xl text-primary-text ml-2 mr-2 mb-4">
                 <MainHeader />
                 {children}
             </div>
