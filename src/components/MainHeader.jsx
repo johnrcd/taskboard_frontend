@@ -40,6 +40,8 @@ const MainHeader = () => {
             ">
                 <div className="
                     flex
+                    max-w-screen-xl
+                    m-auto
                 ">
                     <h1 className="flex-1 text-2xl font-bold text-left text-offset-text block">
                         The Taskboard

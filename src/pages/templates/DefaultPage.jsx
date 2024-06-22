@@ -6,12 +6,14 @@ import MainHeader from "../../components/MainHeader";
  */
 const DefaultPage = ({children}) => {
     return (
-        <div className="bg-primary-background min-h-screen flex justify-center">
-            <div className="w-full max-w-7xl text-primary-text ml-2 mr-2 mb-4">
-                <MainHeader />
-                {children}
+        <>
+            <MainHeader />
+            <div className="bg-primary-background min-h-screen flex justify-center">
+                <div className="w-full max-w-7xl text-primary-text ml-2 mr-2 mb-4">
+                    {children}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
