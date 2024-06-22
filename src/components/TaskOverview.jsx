@@ -14,7 +14,9 @@ const TaskOverview = ({uuid, summary, onTaskClick}) => {
                 <p className="text-primary-tooltip text-sm tracking-tight">
                     uuid: {uuid}
                 </p>
-                <h3 className="text-primary-text text-normal font-normal m-0 p-0 line-clamp-1">
+                <h3 className="text-primary-text text-normal font-normal m-0 p-0 line-clamp-1"
+                    title={summary}
+                >
                     {summary}
                 </h3>
             </div>
