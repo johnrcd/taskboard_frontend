@@ -18,26 +18,26 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
         }>
             {summary !== "" && // mfw conditional rendering
                 <div>
-                    <h3 className="text-primary-text text-xl font-normal m-0 p-0 line-clamp-1">
+                    <h3 className="text-primary-text text-2xl font-bold m-0 p-0 pb-1 mb-2 line-clamp-1 border-b-2 border-primary-accent w-full">
                         {summary}
                     </h3>
 
-                    <ul className="text-xs flex flex-wrap flex-row space-x-1 text-note-text m-0 mt-1">
-                        <li className="bg-note-background border-t-[3px] border-note-border font-normal py-1 px-2 mb-1 inline-block">
+                    <ul className="text-xs flex flex-wrap flex-row space-x-1 text-note-text m-0">
+                        <li className="bg-note-background border-l-2 border-note-border font-normal py-1 px-2 mb-1 inline-block">
                             Type:&nbsp;
                             <div className="inline-block">{type}</div>
                         </li>
-                        <li className="bg-note-background border-t-[3px] border-note-border font-normal py-1 px-2 mb-1 inline-block">
+                        <li className="bg-note-background border-l-2 border-note-border font-normal py-1 px-2 mb-1 inline-block">
                             Project:&nbsp;
                             <div className="inline-block">{project}</div>
                         </li>
-                        <li className="bg-note-background border-t-[3px] border-note-border font-normal py-1 px-2 mb-1 inline-block">
+                        <li className="bg-note-background border-l-2 border-note-border font-normal py-1 px-2 mb-1 inline-block">
                             Status:&nbsp;
                             <div className="inline-block">{status}</div>
                         </li>
                     </ul>
 
-                    <p className="text-primary-tooltip text-sm tracking-tight mt-3">
+                    <p className="text-primary-tooltip text-sm tracking-tight">
                         uuid: {uuid}
                     </p>
                     <p className="text-primary-tooltip text-sm tracking-tight">
@@ -47,10 +47,11 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         posted on: {dateCreated}
                     </p>
 
-                    <h4 className="text-primary-text text-normal font-bold tracking-tight mt-5">Description</h4>
+                    <h4 className="text-primary-text text-lg font-bold tracking-tight mt-5 border-b-2 border-primary-accent w-full">Description</h4>
                     <p className="text-primary-tooltip text-normal tracking-tight max-w-xl whitespace-pre-wrap">{description}</p>
                     
-                    <h4 className="text-primary-text text-normal font-bold tracking-tight mt-5">Comments</h4>
+                    <h4 className="text-primary-text text-lg font-bold tracking-tight mt-5 border-b-2 border-primary-accent w-full">Comments</h4>
+                    <div className="flex flex-col gap-4">
                     {
                         comments.map((comment, index) =>
                         <TaskComment
@@ -61,6 +62,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         />
                         )
                     }
+                    </div>
                     <br />
                     <PostCommentContainer
                         onFormSubmitHandler={(uuid) => {handlePostCommentForm(uuid)}}

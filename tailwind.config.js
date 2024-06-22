@@ -5,7 +5,7 @@ export default {
         extend: {
             colors: {
                 primary: {
-                    text: "#000000",
+                    text: "#1A1A1A",
                     tooltip: "#555555",
                     background: "#F0F0F0",
                     border: "#C9C9C9",
