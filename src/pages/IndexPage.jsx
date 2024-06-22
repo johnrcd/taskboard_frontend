@@ -8,6 +8,7 @@ import { fetchFromApi, fetchAsUser } from "../util/api.js";
 import DefaultPage from "./templates/DefaultPage";
 import TaskList from "../containers/TaskList.jsx";
 import TaskDetails from '../components/TaskDetails.jsx';
+import MainHeader from '../components/MainHeader.jsx';
 
 const IndexPage = () => {
     const [currentTask, setCurrentTask] = useState({});
@@ -73,17 +74,16 @@ const IndexPage = () => {
     };
 
     return(
-        <DefaultPage>
-            <div className="
-                flex
-                flex-col md:flex-row
-            ">
+        <div className="flex flex-col max-h-screen h-screen">
+            <div className="flex-none"><MainHeader /></div>
+            <main className="flex flex-row flex-1 max-w-7xl w-full m-auto h-full max-h-full">
                 <TaskList
                     className="
                         flex-none 
                         w-full md:w-[360px] 
-                        h-[30vh] md:h-[85vh] 
-                        overflow-y-scroll "
+                        overflow-y-scroll 
+                        h-full
+                        max-h-full"
                     onTaskClick={(uuid) => taskClickHandler(uuid)}
                 />
                 <TaskDetails
@@ -98,13 +98,13 @@ const IndexPage = () => {
                     comments    = {currentTask.comments    || ""}
                     dateCreated = {currentTask.dateCreated || ""}
                     style="
-                        md:w-70
-                        md:h-[85vh]
-                        md:overflow-y-scroll"
+                        overflow-y-scroll
+                        h-full
+                        flex-1"
                     onPostCommentClick = {(content, uuid) => handlePostCommentForm(content, uuid)}
                 />
-            </div>
-        </DefaultPage>
+            </main>
+        </div>
     )
 };
 
