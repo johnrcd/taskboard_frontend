@@ -40,7 +40,7 @@ const TaskList = ({onTaskClick, className}) => {
         )
         }
         {!isLoaded && 
-        <p className="text-white text-normal font-normal m-0 p-0 line-clamp-1">
+        <p className="text-primary-text text-normal font-normal m-0 p-0 line-clamp-1">
             Loading...
         </p>
         }

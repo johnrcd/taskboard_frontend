@@ -47,7 +47,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
 
                     <h4 className="
                         text-primary-text text-lg font-bold tracking-tight
-                        mt-5
+                        mt-5 mb-2 
                         border-b-2 border-primary-accent w-full
                     ">
                         Description
@@ -62,7 +62,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                     
                     <h4 className="
                         text-primary-text text-lg font-bold tracking-tight
-                        mt-5
+                        mt-5 mb-2 
                         border-b-2 border-primary-accent w-full
                     ">
                         Comments
@@ -73,7 +73,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         comments.map((comment, index) =>
                         <TaskComment
                             poster={comment.poster}
-                            dateCreated={new Date(comment.date_created).toLocaleString()}
+                            dateCreated={comment.date_created}
                             content={comment.content}
                             key={"comment_" + uuid + "_" + index}
                         />
@@ -88,7 +88,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
             }
             {summary === "" &&
                 <div className="flex justify-center align-middle">
-                    <h3 className="text-white text-xl font-normal m-0 p-0 line-clamp-1">
+                    <h3 className="text-primary-text text-xl font-normal m-0 p-0 line-clamp-1">
                         No task selected.
                     </h3>
                 </div>
