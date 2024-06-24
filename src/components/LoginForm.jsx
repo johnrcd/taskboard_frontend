@@ -93,6 +93,8 @@ const LoginForm = ({onLoginHandler, showError}) => {
                     </button>
                 </div>
 
+                <hr className="border-1 border-slate-500"/>
+                
                 <p className="text-center mt-5">Don't have an account?</p>
 
                 <Link
