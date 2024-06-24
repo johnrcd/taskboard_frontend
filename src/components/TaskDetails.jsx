@@ -47,7 +47,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
 
                     <h4 className="
                         text-primary-text text-lg font-bold tracking-tight
-                        mt-5 mb-2 
+                        mt-5 mb-1
                         border-b-2 border-primary-accent w-full
                     ">
                         Description

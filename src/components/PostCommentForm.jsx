@@ -29,10 +29,14 @@ const PostCommentForm = ({onFormSubmitHandler}) => {
             <textarea
                 className="
                     box-border resize
-                    bg-slate-400/10
-                    text-stone-300
-                    rounded-md p-1
+                    bg-note-background
+                    border-2
+                    border-note-border
+                    text-note-text
+                    placeholder-note-tooltip
+                    p-1
                     w-full
+                    rounded
                 "
                 type="text"
                 id="content"
@@ -47,17 +51,15 @@ const PostCommentForm = ({onFormSubmitHandler}) => {
 
             <br />
 
-            <p className="text-stone-400">Remaining Characters: {maxCharacterCount - characterCount}</p>
+            <p className="text-primary-tooltip">Remaining Characters: {maxCharacterCount - characterCount}</p>
 
             <br />
             <div className="flex justify-center">
                 <button
                     className="
-                        bg-cyan-800 hover:bg-cyan-700 
-                        text-white font-bold
+                        bg-offset-background hover:bg-note-border
+                        text-offset-text font-bold
                         py-2 px-4
-                        border-b-4 border-sky-900
-                        hover:border-sky-800
                         rounded
                     "
                     type="submit"
