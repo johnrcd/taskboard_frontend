@@ -2,11 +2,10 @@ const TaskOverview = ({uuid, summary, onTaskClick}) => {
     return (
         <button className="
             w-full
-            border-t-[3px]
-            border-primary-border hover:border-note-border
             flex flex-col justify-between
             bg-primary-background hover:bg-note-background
-            px-4 py-3"
+            px-4 py-3
+            rounded-2xl"
 
             onClick={() => onTaskClick(uuid)}
         >

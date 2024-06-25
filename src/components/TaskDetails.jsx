@@ -2,14 +2,6 @@ import TaskComment from "./TaskComment";
 import PostCommentContainer from "../containers/PostCommentContainer";
 
 const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
-    // this feels wrong but i hate copy pasting
-    const tagStyles =
-        "bg-note-background " +
-        "border-l-2 border-note-border " +
-        "font-normal" +
-        "py-1 px-2 mb-1 " +
-        "inline-block ";
-    
     function handlePostCommentForm(content) {
         onPostCommentClick(content, uuid);
     }
@@ -27,11 +19,9 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                 <div>
                     <h3 className="
                         text-primary-text text-2xl font-bold
-                        m-0 p-0 pb-1 mb-2 line-clamp-1
+                        m-0 p-0 pb-1 mb-2
                         border-b-2 border-primary-accent w-full
-                    "
-                        title={summary}
-                    >
+                    ">
                         {summary}
                     </h3>
 

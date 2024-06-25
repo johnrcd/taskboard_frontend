@@ -74,7 +74,7 @@ const IndexPage = () => {
     };
 
     return(
-        <div className="flex flex-col max-h-screen h-screen">
+        <div className="flex flex-col max-h-screen h-screen bg-primary-background">
             <div className="flex-none"><MainHeader /></div>
             <main className="flex flex-row flex-1 max-w-7xl w-full m-auto h-full max-h-full">
                 <TaskList
@@ -98,9 +98,10 @@ const IndexPage = () => {
                     comments    = {currentTask.comments    || ""}
                     dateCreated = {currentTask.dateCreated || ""}
                     style="
-                        overflow-y-scroll
-                        h-full
-                        flex-1"
+                        overflow-y-scroll 
+                        h-full 
+                        flex-1 
+                        max-h-full"
                     onPostCommentClick = {(content, uuid) => handlePostCommentForm(content, uuid)}
                 />
             </main>

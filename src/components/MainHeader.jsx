@@ -36,7 +36,7 @@ const MainHeader = () => {
                 text-base font-normal text-offset-text
                 p-2 flex-none
                 bg-offset-background
-                hidden md:block
+                hidden lg:block
             ">
                 <div className="
                     flex
@@ -48,7 +48,7 @@ const MainHeader = () => {
                     </h1>
                     
                     <nav className="m-auto">
-                        <ul className="hidden md:flex justify-center divide-x divide-offset-tooltip">
+                        <ul className="hidden lg:flex justify-center divide-x divide-offset-tooltip">
                         {navigationLinks.map(item => (
                             <li key={item.id}>
                                 <Link
@@ -76,13 +76,13 @@ const MainHeader = () => {
                     p-2 flex-1
                     m-0
 
-                    fixed md:hidden
+                    fixed lg:hidden
                     right-0 top-0
                     bg-gradient-to-r from-cyan-950 to-blue-950
                     w-full
                 ">
                     <div className="flex flex-row justify-around">
-                        <h1 className="flex-1 text-2xl md:text-6xl font-bold text-left text-stone-100 inline">
+                        <h1 className="flex-1 text-2xl font-bold text-left text-stone-100 inline">
                             The Taskboard
                         </h1>
 
@@ -94,7 +94,7 @@ const MainHeader = () => {
                     <ul
                         className={
                             isNavigationEnabled
-                            ? 'block md:hidden right-0 top-0 w-full'
+                            ? 'block lg:hidden right-0 top-0 w-full'
                             : 'h-[0%] fixed bottom-0 left-[-100%] top-[-100%]'
                         }
                     >
@@ -117,7 +117,7 @@ const MainHeader = () => {
 
             {/* how do you properly prevent a fixed nav bar from overlapping... */}
             
-            <div className="block md:hidden">
+            <div className="block lg:hidden">
                 <br /> 
                 <br />
             </div>

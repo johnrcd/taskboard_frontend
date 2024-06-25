@@ -17,7 +17,7 @@ const LoginForm = ({onLoginHandler, showError}) => {
                 text-offset-text
                 p-2
                 rounded-t-md
-                w-full
+                w-64
             ">
                 <h2 className="text-2xl font-bold text-center">Taskboard Login</h2>
             </div>

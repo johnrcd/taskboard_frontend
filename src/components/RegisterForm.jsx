@@ -22,7 +22,7 @@ const RegisterForm = ({onRegisterHandler}) => {
                 text-offset-text
                 p-2
                 rounded-t-md
-                w-full
+                w-72
             ">
                 <h2 className="text-stone-100 text-2xl font-bold text-center">Create an Account</h2>
             </div>
