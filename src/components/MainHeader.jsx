@@ -52,7 +52,7 @@ const MainHeader = () => {
                         {navigationLinks.map(item => (
                             <li key={item.id}>
                                 <Link
-                                    className="h-full px-3 hover:bg-offset-accent hover:text-offset-background"
+                                    className="h-full py-3 px-3 hover:bg-offset-accent hover:text-offset-background"
                                     to={item.path}
                                 >
                                     {item.text}
@@ -62,7 +62,7 @@ const MainHeader = () => {
                         </ul>
                     </nav>
 
-                    <p className="flex-1 text-base font-normal text-right text-stone-300 m-auto">
+                    <p className="flex-1 text-base font-normal text-right m-auto">
                         {!isLoading && (isAuthenticated ?  username : "Not Logged In")}
                     </p> 
                 </div>
@@ -72,17 +72,17 @@ const MainHeader = () => {
 
             <header>
                 <nav className="
-                    text-base font-normal text-center text-stone-300
+                    text-base font-normal text-center text-offset-text
                     p-2 flex-1
                     m-0
 
                     fixed lg:hidden
                     right-0 top-0
-                    bg-gradient-to-r from-cyan-950 to-blue-950
+                    bg-offset-background
                     w-full
                 ">
                     <div className="flex flex-row justify-around">
-                        <h1 className="flex-1 text-2xl font-bold text-left text-stone-100 inline">
+                        <h1 className="flex-1 text-2xl font-bold text-left inline">
                             The Taskboard
                         </h1>
 
@@ -101,14 +101,14 @@ const MainHeader = () => {
                     {navigationLinks.map(item => (
                         <li key={item.id}>
                             <Link
-                                className="px-3 hover:underline hover:text-stone-100"
+                                className="px-3 hover:bg-offset-accent hover:text-offset-background"
                                 to={item.path}
                             >
                                 {item.text}
                             </Link>
                         </li>
                     ))}
-                        <li className="flex-1 text-base font-normal text-center text-stone-400 m-auto mt-4">
+                        <li className="flex-1 text-base font-normal text-center text-offset-tooltip m-auto mt-4">
                         {isAuthenticated ?  "Logged in as " + username + "." : "You are not logged in."}
                         </li> 
                     </ul>

@@ -13,7 +13,7 @@ export default {
                 },
                 offset: {
                     text: "#F9F9F9",
-                    tooltip: "#555555",
+                    tooltip: "#BABABA",
                     background: "#181718",
                     border: "#C9C9C9",
                     accent: "#EB9623",
