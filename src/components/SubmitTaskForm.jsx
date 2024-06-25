@@ -32,17 +32,22 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
         setCharacterCount(e.target.value.length);
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <h2 className="text-stone-100 text-2xl text-center font-bold">Submit a Task</h2>
+        <form className="text-primary-text" onSubmit={handleSubmit}>
+            <h2 className="text-2xl text-center font-bold">Submit a Task</h2>
             
             {/* SUMMARY INPUT */}
-            <label className="text-stone-100" htmlFor="summary">Summary</label><br />
+            <label className="block font-bold" htmlFor="summary">Summary</label>
             <input
                 className="
-                    bg-slate-800
-                    text-stone-300
-                    rounded-md p-1
+                    box-border resize
+                    bg-note-background
+                    border-2
+                    border-note-border
+                    text-note-text
+                    placeholder-note-tooltip
+                    p-1
                     w-full
+                    rounded
                 "
                 type="text"
                 id="summary"
@@ -50,12 +55,12 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 maxLength={255}
                 required
             /><br />
-            <p className="text-stone-400">Provide a brief overview of your task. Ideally, 1-2 sentences.</p>
+            <p className="text-primary-tooltip">Provide a brief overview of your task. Ideally, 1-2 sentences.</p>
 
             <br />
 
             {/* TYPE INPUT */}
-            <label className="text-stone-100" htmlFor="type">Type</label><br />
+            <label className="block font-bold" htmlFor="type">Type</label>
 
             <input
                 className="w-3 h-3 bg-zinc-950 "
@@ -64,9 +69,9 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 name="type"
                 value="FEAT"
             />
-            <label className="text-stone-300 pl-1" htmlFor="type">
+            <label className="pl-1" htmlFor="type">
                 Feature&nbsp;
-                <p className="text-stone-400 inline">
+                <p className="text-primary-tooltip inline">
                     - Feature request for an existing project.
                 </p>
             </label><br />
@@ -78,9 +83,9 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 name="type"
                 value="ISSU"
             />
-            <label className="text-stone-300 pl-1" htmlFor="type">
+            <label className="pl-1" htmlFor="type">
                 Issue&nbsp;
-                <p className="text-stone-400 inline">
+                <p className="text-primary-tooltip inline">
                     - Bug or issue with existing project.
                 </p>
             </label><br />
@@ -92,9 +97,9 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 name="type"
                 value="PROJ"
             />
-            <label className="text-stone-300 pl-1" htmlFor="type">
+            <label className="pl-1" htmlFor="type">
                 Project&nbsp;
-                <p className="text-stone-400 inline">
+                <p className="text-primary-tooltip inline">
                     - Idea for a new project.
                 </p>
             </label><br />
@@ -106,9 +111,9 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 name="type"
                 value="TASK"
             />
-            <label className="text-stone-300 pl-1" htmlFor="type">
+            <label className="pl-1" htmlFor="type">
                 Task&nbsp;
-                <p className="text-stone-400 inline">
+                <p className="text-primary-tooltip inline">
                     - Represents any task. Use this if you're unsure on the type.
                 </p>
             </label><br />
@@ -116,8 +121,18 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
             <br />
 
             {/* PROJECT INPUT */}
-            <label className="text-stone-100" htmlFor="project">Project</label><br />
-            <select name="project" id="project" className="text-stone-300 bg-slate-800 rounded-md">
+            <label className="block font-bold" htmlFor="project">Project</label>
+            <select name="project" id="project" className="
+                box-border resize
+                bg-note-background
+                border-2
+                border-note-border
+                text-note-text
+                placeholder-note-tooltip
+                p-1
+                w-full
+                rounded
+            ">
                 <option value="">None</option>
                 {projects.length !== 0 &&
                     projects.map((project, index) => 
@@ -125,21 +140,25 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                     )
                 }
             </select> <br />
-            <p className="text-stone-400">The project that this task is connected to.</p>
-            <p className="text-stone-400">
+            <p className="text-primary-tooltip">The project that this task is connected to.</p>
+            <p className="text-primary-tooltip">
                 If the task type is Project (meaning a new project), this value will be ignored.
             </p>
             <br />
             
             {/* DESCRIPTION INPUT */}
-            <label className="text-stone-100" htmlFor="description">Description</label><br />
+            <label className="block font-bold" htmlFor="description">Description</label>
             <textarea
                 className="
                     box-border resize
-                    bg-slate-400/10
-                    text-stone-300
-                    rounded-md p-1
+                    bg-note-background
+                    border-2
+                    border-note-border
+                    text-note-text
+                    placeholder-note-tooltip
+                    p-1
                     w-full
+                    rounded
                 "
                 type="text"
                 id="description"
@@ -151,20 +170,15 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
                 required
             >
             </textarea>
-            
-            <br />  {/* my poor use of br tags will haunt me. but not today. */}
 
-            <p className="text-stone-400">Remaining Characters: {maxCharacterCount - characterCount}</p>
+            <p className="text-primary-tooltip">Remaining Characters: {maxCharacterCount - characterCount}</p>
 
-            <br />
             <div className="flex justify-center">
                 <button
                     className="
-                        bg-cyan-800 hover:bg-cyan-700 
-                        text-white font-bold
-                        py-2 px-4
-                        border-b-4 border-sky-900
-                        hover:border-sky-800
+                        bg-offset-background hover:bg-note-border
+                        text-offset-text font-bold
+                        m-4 py-2 px-4
                         rounded
                     "
                     type="submit"
