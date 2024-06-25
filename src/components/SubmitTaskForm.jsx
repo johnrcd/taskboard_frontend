@@ -38,17 +38,7 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
             {/* SUMMARY INPUT */}
             <label className="block font-bold" htmlFor="summary">Summary</label>
             <input
-                className="
-                    box-border resize
-                    bg-note-background
-                    border-2
-                    border-note-border
-                    text-note-text
-                    placeholder-note-tooltip
-                    p-1
-                    w-full
-                    rounded
-                "
+                className="form-input-text"
                 type="text"
                 id="summary"
                 name="summary"
@@ -122,17 +112,7 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
 
             {/* PROJECT INPUT */}
             <label className="block font-bold" htmlFor="project">Project</label>
-            <select name="project" id="project" className="
-                box-border resize
-                bg-note-background
-                border-2
-                border-note-border
-                text-note-text
-                placeholder-note-tooltip
-                p-1
-                w-full
-                rounded
-            ">
+            <select name="project" id="project" className="form-input-text">
                 <option value="">None</option>
                 {projects.length !== 0 &&
                     projects.map((project, index) => 
@@ -149,17 +129,7 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
             {/* DESCRIPTION INPUT */}
             <label className="block font-bold" htmlFor="description">Description</label>
             <textarea
-                className="
-                    box-border resize
-                    bg-note-background
-                    border-2
-                    border-note-border
-                    text-note-text
-                    placeholder-note-tooltip
-                    p-1
-                    w-full
-                    rounded
-                "
+                className="form-input-text"
                 type="text"
                 id="description"
                 name="description"
@@ -175,12 +145,7 @@ const SubmitTaskForm = ({onSubmitTaskHandler}) => {
 
             <div className="flex justify-center">
                 <button
-                    className="
-                        bg-offset-background hover:bg-note-border
-                        text-offset-text font-bold
-                        m-4 py-2 px-4
-                        rounded
-                    "
+                    className="form-button-submit"
                     type="submit"
                 >
                     Submit Task

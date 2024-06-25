@@ -27,17 +27,7 @@ const PostCommentForm = ({onFormSubmitHandler}) => {
     return (
         <form onSubmit={handleFormSubmit}>
             <textarea
-                className="
-                    box-border resize
-                    bg-note-background
-                    border-2
-                    border-note-border
-                    text-note-text
-                    placeholder-note-tooltip
-                    p-1
-                    w-full
-                    rounded
-                "
+                className="form-input-text"
                 type="text"
                 id="content"
                 name="content"
@@ -49,19 +39,11 @@ const PostCommentForm = ({onFormSubmitHandler}) => {
             >
             </textarea>
 
-            <br />
-
             <p className="text-primary-tooltip">Remaining Characters: {maxCharacterCount - characterCount}</p>
 
-            <br />
             <div className="flex justify-center">
                 <button
-                    className="
-                        bg-offset-background hover:bg-note-border
-                        text-offset-text font-bold
-                        py-2 px-4
-                        rounded
-                    "
+                    className="form-button-submit"
                     type="submit"
                 >
                     Post Comment

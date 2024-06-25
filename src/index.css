@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .form-input-text {
+        @apply
+        box-border resize
+        bg-primary-background
+        border-2
+        border-primary-border
+        text-primary-text
+        placeholder-note-tooltip
+        p-1
+        w-full
+        rounded
+    }
+
+    .form-button-submit {
+        @apply
+        bg-offset-background hover:bg-note-border
+        text-offset-text font-bold
+        m-4 py-2 px-4
+        rounded
+    }
+}
 @layer utilities {
 
     ::root {

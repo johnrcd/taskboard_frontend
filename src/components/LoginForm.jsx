@@ -33,16 +33,7 @@ const LoginForm = ({onLoginHandler, showError}) => {
             ">
                 <label htmlFor="username">Username</label><br />
                 <input
-                    className="
-                        bg-note-background
-                        border-2
-                        border-note-border
-                        text-note-text
-                        placeholder-note-tooltip
-                        p-1
-                        rounded-md
-                        w-64
-                    "
+                    className="form-input-text"
                     type="text"
                     id="username"
                     name="username"
@@ -53,16 +44,7 @@ const LoginForm = ({onLoginHandler, showError}) => {
 
                 <label htmlFor="password">Password</label><br />
                 <input
-                    className="
-                        bg-note-background
-                        border-2
-                        border-note-border
-                        text-note-text
-                        placeholder-note-tooltip
-                        p-1
-                        rounded-md
-                        w-64
-                    "
+                    className="form-input-text"
                     type="password"
                     id="password"
                     name="password"
@@ -81,12 +63,7 @@ const LoginForm = ({onLoginHandler, showError}) => {
 
                 <div className="flex justify-center">
                     <button
-                        className="
-                            bg-offset-background hover:bg-note-border
-                            text-offset-text font-bold
-                            m-4 py-2 px-4
-                            rounded
-                        "
+                        className="form-button-submit"
                         type="submit"
                     >
                         Login
@@ -94,7 +71,7 @@ const LoginForm = ({onLoginHandler, showError}) => {
                 </div>
 
                 <hr className="border-1 border-slate-500"/>
-                
+
                 <p className="text-center mt-5">Don't have an account?</p>
 
                 <Link
