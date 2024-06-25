@@ -10,7 +10,9 @@ const TaskOverview = ({uuid, summary, onTaskClick}) => {
             onClick={() => onTaskClick(uuid)}
         >
             <div className="grow flex flex-col text-left">
-                <p className="text-primary-tooltip text-sm tracking-tight">
+                <p className="text-primary-tooltip text-sm tracking-tight line-clamp-1"
+                    title={"uuid: " + uuid}
+                >
                     uuid: {uuid}
                 </p>
                 <h3 className="text-primary-text text-normal font-normal m-0 p-0 line-clamp-1"
