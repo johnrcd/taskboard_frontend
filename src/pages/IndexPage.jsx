@@ -76,34 +76,40 @@ const IndexPage = () => {
     return(
         <div className="flex flex-col max-h-screen h-screen bg-primary-background">
             <div className="flex-none"><MainHeader /></div>
-            <main className="flex flex-row flex-1 max-w-7xl w-full m-auto h-full max-h-full">
-                <TaskList
-                    className="
-                        flex-none 
-                        w-full md:w-[360px] 
-                        overflow-y-scroll 
-                        h-full
-                        max-h-full"
-                    onTaskClick={(uuid) => taskClickHandler(uuid)}
-                />
-                <TaskDetails
-                    uuid        = {currentTask.uuid        || ""}
-                    summary     = {currentTask.summary     || ""}
-                    author      = {currentTask.author      || ""}
-                    category    = {currentTask.category    || ""}
-                    project     = {currentTask.project     || ""}
-                    type        = {currentTask.type        || ""}
-                    status      = {currentTask.status      || ""}
-                    description = {currentTask.description || ""}
-                    comments    = {currentTask.comments    || ""}
-                    dateCreated = {currentTask.dateCreated || ""}
-                    style="
-                        overflow-y-scroll 
-                        h-full 
-                        flex-1 
-                        max-h-full"
-                    onPostCommentClick = {(content, uuid) => handlePostCommentForm(content, uuid)}
-                />
+            {/* not sure why i need overflow-y-hidden in main but it makes it so the other scroll bars work so */}
+            <main className="flex flex-row flex-1 max-w-7xl w-full m-auto h-full max-h-full overflow-y-hidden"> 
+                <div className="
+                    overflow-y-scroll
+                    flex-none
+                    w-[380px]
+                    max-w-full
+                    h-full
+                    bg-primary-border
+                ">
+                    <TaskList
+                        onTaskClick={(uuid) => taskClickHandler(uuid)}
+                    />
+                </div>
+                <div className="
+                    overflow-y-scroll
+                    flex-1
+                    w-full
+                    h-full
+                ">
+                    <TaskDetails
+                        uuid        = {currentTask.uuid        || ""}
+                        summary     = {currentTask.summary     || ""}
+                        author      = {currentTask.author      || ""}
+                        category    = {currentTask.category    || ""}
+                        project     = {currentTask.project     || ""}
+                        type        = {currentTask.type        || ""}
+                        status      = {currentTask.status      || ""}
+                        description = {currentTask.description || ""}
+                        comments    = {currentTask.comments    || ""}
+                        dateCreated = {currentTask.dateCreated || ""}
+                        onPostCommentClick = {(content, uuid) => handlePostCommentForm(content, uuid)}
+                    />
+                </div>
             </main>
         </div>
     )

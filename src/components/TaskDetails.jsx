@@ -7,14 +7,13 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
     }
 
     return (
-        <div className={
-            // add spaces at the end of each string
-            "bg-primary-background " +
-            "px-4 py-3 " +
-            "w-full " +
-            "block " +
-            style
-        }>
+        <div className="
+            bg-primary-background
+            px-4 py-3 
+            w-full 
+            block
+            h-full
+        ">
             {summary !== "" && // mfw conditional rendering
                 <div>
                     <h3 className="
