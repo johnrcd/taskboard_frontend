@@ -28,7 +28,7 @@ const MainHeader = () => {
         navigationLinks.push({ id: 5, path: "/register", text: "Register"  });
     }
     else {
-        navigationLinks.push({ id: 5, path: "/profile", text: "View Profile"});
+        navigationLinks.push({ id: 5, path: "/profile", text: "View Profile"})
     }
 
     return (
@@ -55,7 +55,7 @@ const MainHeader = () => {
                         {navigationLinks.map(item => (
                             <li key={item.id}>
                                 <Link
-                                    className="h-full py-3 px-3 hover:bg-offset-accent hover:text-offset-background"
+                                    className="h-full py-[14px] px-3 hover:bg-offset-accent hover:text-offset-background"
                                     to={item.path}
                                 >
                                     {item.text}

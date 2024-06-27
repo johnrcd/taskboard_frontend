@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import TaskComment from "./TaskComment";
 import PostCommentContainer from "../containers/PostCommentContainer";
 
@@ -6,6 +8,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
         onPostCommentClick(content, uuid);
     }
 
+        console.log(author);
     return (
         <div className="
             bg-primary-background
@@ -31,7 +34,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                     </ul>
 
                     <MetadataTag>uuid: {uuid}</MetadataTag>
-                    <MetadataTag>author: {author}</MetadataTag>
+                    <MetadataTag>author: <Link className="hover:underline" to={"/profile?username=" + author.toString()}>{author}</Link></MetadataTag>
                     <MetadataTag>posted on: {dateCreated}</MetadataTag>
 
                     <h4 className="
