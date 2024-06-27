@@ -27,6 +27,9 @@ const MainHeader = () => {
     if (!isAuthenticated) { 
         navigationLinks.push({ id: 5, path: "/register", text: "Register"  });
     }
+    else {
+        navigationLinks.push({ id: 5, path: "/profile", text: "View Profile"});
+    }
 
     return (
         <>

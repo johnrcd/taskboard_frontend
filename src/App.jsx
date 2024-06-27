@@ -7,6 +7,7 @@ import SubmitTask from './pages/SubmitTask';
 import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Register from './pages/Register';
+import Profile from './pages/Profile';
 
 export default function App() {    
     return (
@@ -18,6 +19,7 @@ export default function App() {
                 <Route path="/login"    element={<Login />} />
                 <Route path="/logout"   element={<Logout />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/profile"  element={<Profile />} />
             </Routes>
         </BrowserRouter>
     )
