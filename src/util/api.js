@@ -10,8 +10,8 @@ import { getAccessToken } from "./auth";
 // q: why is one of the urls exported but the other isn't
 // a: idk i forgot
 
-// export const root_url = "http://127.0.0.1:8000"
-const root_url = "https://johnrcd.pythonanywhere.com"
+export const root_url = "http://127.0.0.1:8000"
+// const root_url = "https://johnrcd.pythonanywhere.com"
 
 /**
  * Wrapper for fetch request.
