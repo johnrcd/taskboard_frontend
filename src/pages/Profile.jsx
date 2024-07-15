@@ -9,6 +9,7 @@ import { getUsername } from "../util/auth";
 
 import Identicon from "../components/Identicon";
 import { useNotifications } from "../hooks/useNotifications";
+import NotificationList from "../containers/NotificationList";
 
 const Profile = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -57,7 +58,7 @@ const Profile = () => {
                     </p>
                 </section>
                 <section className="whitespace-pre w-full mt-4 break-words">
-                    {JSON.stringify(notifications)}
+                    <NotificationList username={profileUsername} />
                 </section>
             </main>
         </DefaultPage>
