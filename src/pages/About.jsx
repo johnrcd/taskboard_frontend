@@ -32,7 +32,7 @@ const About = () => {
                 </ul> <br />
                 <p> 
                     I'll be working on this website when I can, but stuff might get in the
-                    way -- we'll have to see. Either way, the website is up, so have fun with
+                    way — we'll have to see. Either way, the website is up, so have fun with
                     it!
                 </p> <br />
                 <hr className="border-1 border-slate-500"/> <br />

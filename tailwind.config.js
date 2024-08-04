@@ -8,7 +8,7 @@ export default {
                     text: "#1A1A1A",
                     tooltip: "#555555",
                     background: "#F0F0F0",
-                    border: "#C9C9C9",
+                    border: "#DBDBDB",
                     accent: "#EB9623",
                 },
                 offset: {
