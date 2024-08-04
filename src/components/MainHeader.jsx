@@ -51,7 +51,7 @@ const MainHeader = () => {
                     </h1>
                     
                     <nav className="m-auto">
-                        <ul className="hidden lg:flex justify-center divide-x divide-offset-tooltip">
+                        <ul className="hidden lg:flex justify-center">
                         {navigationLinks.map(item => (
                             <li key={item.id}>
                                 <Link

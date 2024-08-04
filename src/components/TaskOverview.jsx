@@ -5,7 +5,6 @@ const TaskOverview = ({uuid, summary, onTaskClick}) => {
             flex flex-col justify-between
             bg-primary-background hover:bg-note-background
             px-4 py-3
-            rounded-2xl
         "
             onClick={() => onTaskClick(uuid)}
         >

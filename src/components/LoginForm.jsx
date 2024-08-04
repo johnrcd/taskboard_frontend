@@ -26,7 +26,7 @@ const LoginForm = ({onLoginHandler, showError}) => {
                 text-primary-text
                 p-2
                 rounded-b-md
-                border-4
+                border-2
                 border-t-0
                 border-offset-background
                 w-full
