@@ -9,7 +9,6 @@ const NotificationList = ({username}) => {
     let notificationsJsx = [];
     
     for(let i = 0; i < notifications.length; i++){
-        console.log(notifications[i]);
         notificationsJsx.push(
             <li>
                 <Notification message={notifications[i].message} />
