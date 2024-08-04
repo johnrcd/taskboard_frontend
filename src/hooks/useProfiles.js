@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
 import { fetchFromApi } from '../util/api';
 
-export const useProfiles = async(username) => {
-    const [profile, setProfile] = useState({});
+export const useProfiles = (username) => {
+    const [profile, setProfile] = useState({username: "rovidecena"});
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchProfile = async() => {
             await fetchFromApi("/api/user/profile/" + username + "")
                 .then(response => { return response.json(); })
                 .then(data => { setProfile(data); })
+                .finally(() => { setIsLoading(false); });
         };
         fetchProfile();
         return;
     }, [username])
 
-    return {profile};
+    return {isLoading, profile};
 }
