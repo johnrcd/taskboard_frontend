@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { getUsername } from "../util/auth";
 import { useAuthentication } from "../hooks/useAuthentication";
+import Identicon from "../components/Identicon";
 
 const MainHeader = () => {
     const [isNavigationEnabled, setIsNavigatorEnabled] = useState(false);
@@ -64,10 +65,22 @@ const MainHeader = () => {
                         ))}
                         </ul>
                     </nav>
-
-                    <p className="flex-1 text-base font-normal text-right m-auto">
-                        {!isLoading && (isAuthenticated ?  username : "Not Logged In")}
-                    </p> 
+                    <div className="
+                        flex flex-row m-auto flex-1 mr-0 justify-end gap-1
+                    ">
+                    {
+                        !isLoading && isAuthenticated &&
+                        <Identicon username={username} width="32" height="32"/>
+                    }
+                    {
+                        !isLoading &&
+                        <div className="flex items-center justify-center">
+                            <p className="block">
+                                {isAuthenticated ?  username : "Not Logged In"}
+                            </p> 
+                        </div>
+                    }
+                    </div>
                 </div>
             </header>
 
