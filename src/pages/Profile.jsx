@@ -11,6 +11,7 @@ import Identicon from "../components/Identicon";
 import { useNotifications } from "../hooks/useNotifications";
 import NotificationList from "../containers/NotificationList";
 import { useProfiles } from "../hooks/useProfiles";
+import { useActivity } from "../hooks/useActivity";
 
 const Profile = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -18,6 +19,7 @@ const Profile = () => {
     const profileUsername = searchParams.get("username") || getUsername();
     const isCurrentUser = getUsername() === profileUsername;
     const {isLoading: isProfileLoading, profile} = useProfiles(profileUsername);
+    const {isLoading: isActivityLoading, activity} = useActivity(profileUsername);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -90,6 +92,9 @@ const Profile = () => {
                     <NotificationList username={profileUsername} />
                 </section>
                 }
+                <section className="whitespace-pre w-full mt-4 break-words font-mono">
+                    {JSON.stringify(activity, null, 4)}
+                </section>
             </main>
         </DefaultPage>
     );

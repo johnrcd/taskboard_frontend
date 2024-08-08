@@ -27,7 +27,9 @@ export const useAuthentication = () => {
             )
                 .then(response => { setIsAuthenticated(response.ok); })
                 .catch(() => { setIsAuthenticated(false); })
-                .finally(() => { setIsLoading(false); });
+                .finally(() => {
+                    setIsLoading(false);
+                });
         };
         fetchLoginStatus();
 
