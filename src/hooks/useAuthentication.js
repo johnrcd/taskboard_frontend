@@ -22,7 +22,7 @@ export const useAuthentication = () => {
     useEffect(() => {
         const fetchLoginStatus = async () => {
             await fetchAsUser(
-                "/api/user/status/",
+                "/api/token/status/",
                 options  
             )
                 .then(response => { setIsAuthenticated(response.ok); })

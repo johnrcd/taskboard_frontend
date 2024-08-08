@@ -9,7 +9,7 @@ export const useNotifications = (username) => {
 
     useEffect(() => {
         const fetchNotifications = async() => {
-            await fetchFromApi("/api/notifications/" + username + "")
+            await fetchFromApi("/api/user/" + username + "/notifications/")
                 .then(response => { return response.json(); })
                 .then(data => { setNotifications(data); })
         };
