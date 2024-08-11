@@ -50,6 +50,12 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         max-w-xl whitespace-pre-wrap
                     ">
                         {description}
+
+                        {/* backup incase someone manages to submit an empty description */}
+                        
+                        {(description.replace(/\s/g, "")).length === 0 &&
+                            "No description has been provided."
+                        }
                     </p>
                     
                     <h4 className="
@@ -70,6 +76,15 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                             key={"comment_" + uuid + "_" + index}
                         />
                         )
+                    }
+                    {
+                        comments.length === 0 &&
+                        <p className="
+                            text-primary-tooltip text-normal tracking-tight
+                            max-w-xl whitespace-pre-wrap
+                        ">
+                            No comments have been posted yet.
+                        </p>
                     }
                     </div>
                     <br />
