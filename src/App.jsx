@@ -8,12 +8,14 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import Task from './pages/Task';
 
 export default function App() {    
     return (
         <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Routes>
                 <Route path="/"         element={<IndexPage />} />
+                <Route path="/task"     element={<Task />} />
                 <Route path="/about"    element={<About />} />
                 <Route path="/submit"   element={<PrivateRoute component={<SubmitTask />}/>}/>
                 <Route path="/login"    element={<Login />} />
