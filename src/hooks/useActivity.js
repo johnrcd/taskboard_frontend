@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchFromApi } from '../util/api';
 
 export const useActivity = (username) => {
-    const [activity, setActivity] = useState({});
+    const [activity, setActivity] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {

@@ -8,6 +8,7 @@ import { useAuthentication } from "../hooks/useAuthentication";
 import { getUsername } from "../util/auth";
 
 import Identicon from "../components/Identicon";
+import UserActivity from "../components/UserActivity";
 import { useNotifications } from "../hooks/useNotifications";
 import NotificationList from "../containers/NotificationList";
 import { useProfiles } from "../hooks/useProfiles";
@@ -19,7 +20,7 @@ const Profile = () => {
     const profileUsername = searchParams.get("username") || getUsername();
     const isCurrentUser = getUsername() === profileUsername;
     const {isLoading: isProfileLoading, profile} = useProfiles(profileUsername);
-    const {isLoading: isActivityLoading, activity} = useActivity(profileUsername);
+    const {isLoading: isActivityLoading, activity: userActivity} = useActivity(profileUsername);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -87,14 +88,28 @@ const Profile = () => {
                     
                 </section>
                 {/* only display notifications if current user matches profile page */}
-                {isCurrentUser &&
+                {/* {isCurrentUser &&
                 <section className="whitespace-pre w-full mt-4 break-words">
                     <NotificationList username={profileUsername} />
                 </section>
+                } */}
+                <section>
+                {
+                    !isActivityLoading &&            
+                    userActivity.map((activity, index) =>
+                        <UserActivity
+                            user={activity.user}
+                            datetimeCreated={activity.datetime_created}
+                            type={activity.type}
+                            task={activity.task}
+                            key={"task_" + activity.task + "_" + index}
+                        />
+                    )
                 }
-                <section className="whitespace-pre w-full mt-4 break-words font-mono">
-                    {JSON.stringify(activity, null, 4)}
                 </section>
+                {/* <section className="whitespace-pre w-full mt-4 break-words font-mono">
+                    {JSON.stringify(userActivity, null, 4)}
+                </section> */}
             </main>
         </DefaultPage>
     );

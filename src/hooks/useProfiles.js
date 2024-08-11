@@ -7,7 +7,7 @@ export const useProfiles = (username) => {
 
     useEffect(() => {
         const fetchProfile = async() => {
-            await fetchFromApi("/api/user" + username + "/profile/")
+            await fetchFromApi("/api/user/" + username + "/profile/")
                 .then(response => { return response.json(); })
                 .then(data => { setProfile(data); })
                 .finally(() => { setIsLoading(false); });
