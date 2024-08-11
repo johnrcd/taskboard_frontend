@@ -2,13 +2,24 @@ import { Link } from "react-router-dom";
 
 import TaskComment from "./TaskComment";
 import PostCommentContainer from "../containers/PostCommentContainer";
+import ReactTimeAgo from 'react-time-ago'
 
-const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
+const TaskDetails = ({uuid, summary, author, datetimeCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
     function handlePostCommentForm(content) {
         onPostCommentClick(content, uuid);
     }
 
-        console.log(author);
+    const dateFormatOptions = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    };
+
+    const date = new Date(datetimeCreated);
+    const formattedDate = date.toLocaleString("en-US", dateFormatOptions);
+    const timeAgoDate = <ReactTimeAgo date={date} locale="en-US"/>
+
     return (
         <div className="
             bg-primary-background
@@ -35,7 +46,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
 
                     <MetadataTag>uuid: {uuid}</MetadataTag>
                     <MetadataTag>author: <Link className="hover:underline" to={"/profile?username=" + author.toString()}>{author}</Link></MetadataTag>
-                    <MetadataTag>posted on: {dateCreated}</MetadataTag>
+                    <MetadataTag>posted on: {formattedDate} &#40;{timeAgoDate}&#41;</MetadataTag>
 
                     <h4 className="
                         text-primary-text text-lg font-bold tracking-tight
@@ -52,7 +63,7 @@ const TaskDetails = ({uuid, summary, author, dateCreated, project, type, status,
                         {description}
 
                         {/* backup incase someone manages to submit an empty description */}
-                        
+
                         {(description.replace(/\s/g, "")).length === 0 &&
                             "No description has been provided."
                         }

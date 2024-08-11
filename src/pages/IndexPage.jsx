@@ -19,16 +19,6 @@ const IndexPage = () => {
         await fetchFromApi("/api/tasks/" + uuid)
             .then(response => { return response.json(); })
             .then(data => {
-                const dateFormatOptions = {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                };
-                const date = new Date(data.date_created);
-                const formattedDate =
-                    date.toLocaleString("en-US", dateFormatOptions);
-                
                 setCurrentTask({
                     uuid: data.uuid,
                     summary: data.summary,
@@ -39,7 +29,7 @@ const IndexPage = () => {
                     status: data.status,
                     description: data.description,
                     comments: data.comments,
-                    dateCreated: formattedDate,
+                    datetimeCreated: data.datetime_created,
                 });
             });
     }
@@ -97,16 +87,16 @@ const IndexPage = () => {
                     h-full
                 ">
                     <TaskDetails
-                        uuid        = {currentTask.uuid        || ""}
-                        summary     = {currentTask.summary     || ""}
-                        author      = {currentTask.author      || ""}
-                        category    = {currentTask.category    || ""}
-                        project     = {currentTask.project     || ""}
-                        type        = {currentTask.type        || ""}
-                        status      = {currentTask.status      || ""}
-                        description = {currentTask.description || ""}
-                        comments    = {currentTask.comments    || ""}
-                        dateCreated = {currentTask.dateCreated || ""}
+                        uuid            = {currentTask.uuid        || ""}
+                        summary         = {currentTask.summary     || ""}
+                        author          = {currentTask.author      || ""}
+                        category        = {currentTask.category    || ""}
+                        project         = {currentTask.project     || ""}
+                        type            = {currentTask.type        || ""}
+                        status          = {currentTask.status      || ""}
+                        description     = {currentTask.description || ""}
+                        comments        = {currentTask.comments    || ""}
+                        datetimeCreated = {currentTask.datetimeCreated || ""}
                         onPostCommentClick = {(content, uuid) => handlePostCommentForm(content, uuid)}
                     />
                 </div>
