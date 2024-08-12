@@ -45,11 +45,11 @@ const TaskDetails = ({uuid, summary, author, datetimeCreated, project, type, sta
                     </ul>
 
                     <MetadataTag>uuid: {uuid}</MetadataTag>
-                    <MetadataTag>author: <Link className="hover:underline" to={"/profile?username=" + author.toString()}>{author}</Link></MetadataTag>
+                    <MetadataTag>author: <Link className="hover:underline" to={"/profile/?username=" + author.toString()}>{author}</Link></MetadataTag>
                     <MetadataTag>posted on: {formattedDate} &#40;{timeAgoDate}&#41;</MetadataTag>
                     <MetadataTag>
                         choose view:&nbsp;
-                        <Link className="hover:underline" to={"/task?uuid=" + uuid}>
+                        <Link className="hover:underline" to={"/task/?uuid=" + uuid}>
                             standalone
                         </Link>
                         ,&nbsp;

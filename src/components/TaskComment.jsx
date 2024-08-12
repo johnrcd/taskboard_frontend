@@ -24,7 +24,7 @@ const TaskComment = ({poster, dateCreated, content, keyValue}) => {
                     font-bold
                     tracking-tight inline-block
                 ">
-                    <Link to={"/profile?username=" + poster}>{poster}</Link>
+                    <Link to={"/profile/?username=" + poster}>{poster}</Link>
                 </h4>
                 <p
                     className="

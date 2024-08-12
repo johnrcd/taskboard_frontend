@@ -83,7 +83,7 @@ const RegisterForm = ({onRegisterHandler}) => {
                 <p className="text-center mt-5">Already have an account?</p>
                 <Link
                     className="px-3 hover:underline hover:text-primary-accent text-center block font-bold"
-                    to="/login"
+                    to="/login/"
                 >
                     Login
                 </Link>

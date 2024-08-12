@@ -96,6 +96,7 @@ const IndexPage = () => {
                     flex-1
                     w-full
                     h-full
+                    block
                 ">
                     <TaskDetails
                         uuid            = {currentTask.uuid            || ""}

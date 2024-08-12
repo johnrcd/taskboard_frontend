@@ -16,7 +16,7 @@ const PrivateRoute = ({ component }) => {
         return <div className="">Loading...</div>;
     }
 
-    return (isAuthenticated ? component : <Navigate to="/login" />);
+    return (isAuthenticated ? component : <Navigate to="/login/" />);
 };
 
 export default PrivateRoute;

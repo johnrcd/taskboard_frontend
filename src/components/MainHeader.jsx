@@ -15,21 +15,21 @@ const MainHeader = () => {
     };
 
     const login_link = isAuthenticated ?
-    { id: 4, path: "/logout", text: "Logout" } :
-    { id: 4, path: "/login", text: "Login" };
+    { id: 4, path: "/logout/", text: "Logout" } :
+    { id: 4, path: "/login/", text: "Login" };
 
     const navigationLinks = [
-        { id: 1, path: "/about",    text: "About"         },
+        { id: 1, path: "/about/",    text: "About"         },
         { id: 2, path: "/",         text: "View Board"    },
-        { id: 3, path: "/submit",   text: "Submit A Task" },
+        { id: 3, path: "/submit/",   text: "Submit A Task" },
         login_link,
     ];
 
     if (!isAuthenticated) { 
-        navigationLinks.push({ id: 5, path: "/register", text: "Register"  });
+        navigationLinks.push({ id: 5, path: "/register/", text: "Register"  });
     }
     else {
-        navigationLinks.push({ id: 5, path: "/profile", text: "View Profile"})
+        navigationLinks.push({ id: 5, path: "/profile/", text: "View Profile"})
     }
 
     return (
