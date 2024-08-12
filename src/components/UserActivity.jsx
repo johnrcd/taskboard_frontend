@@ -3,8 +3,11 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import Identicon from "../components/Identicon";
+import { useTask } from '../hooks/useTask';
 
 const UserActivity = ({user, type, datetimeCreated, task}) => {
+    const {isLoading, task: taskData} = useTask(task);
+
     const dateFormatOptions = {
         weekday: "long",
         year: "numeric",
@@ -18,16 +21,18 @@ const UserActivity = ({user, type, datetimeCreated, task}) => {
 
     let output = "";
 
+    console.log(taskData);
+
     switch(type.toLowerCase()) {
         case "new task":
             output =
             <p>
-                {user} has created a new task: 
+                {user} has created a new task:&nbsp;
                 <Link
-                    className="h-full py-[14px] px-3 hover:bg-offset-accent hover:text-offset-background"
+                    className="hover:underline"
                     to={"/?task=" + task}
-                >
-                    {task}
+                >      
+                    {!isLoading && taskData.summary}
                 </Link>
             </p>
             break;
@@ -42,14 +47,23 @@ const UserActivity = ({user, type, datetimeCreated, task}) => {
     }
 
     return (
-        <>
+        <article className="
+            flex flex-col
+        ">
+            <p className="
+                text-primary-tooltip text-sm
+                tracking-tight
+                inline-block
+            ">
+                {formattedDate} ({timeAgoDate})
+            </p>
             <p className="
                 text-primary-text text-normal tracking-tight
                 max-w-xl break-words
             ">
                 {output}
             </p>
-        </>
+        </article>
     );
 };
 

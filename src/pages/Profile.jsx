@@ -93,7 +93,16 @@ const Profile = () => {
                     <NotificationList username={profileUsername} />
                 </section>
                 } */}
-                <section>
+                <section className="
+                    flex flex-col gap-4
+                ">
+                    <h2 className="                      
+                        text-primary-text text-lg font-bold tracking-tight
+                        mb-1 mt-5
+                        border-b-2 border-note-border w-full
+                    ">
+                        latest activity
+                    </h2>
                 {
                     !isActivityLoading &&            
                     userActivity.map((activity, index) =>
