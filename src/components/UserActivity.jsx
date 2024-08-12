@@ -19,24 +19,30 @@ const UserActivity = ({user, type, datetimeCreated, task}) => {
     const formattedDate = date.toLocaleString("en-US", dateFormatOptions);
     const timeAgoDate = <ReactTimeAgo date={date} locale="en-US"/>
 
-    let output = "";
+    const taskTitle = taskData.summary + " (" + (taskData.uuid || "loading1").substring(0, 8) + "...)";
 
-    console.log(taskData);
+    const taskLink = 
+    <Link
+        className="hover:underline text-note-text bg-note-background pl-1 pr-1"
+        to={"/?task=" + task}
+    >      
+        {!isLoading && taskTitle}
+    </Link>;
+
+    let output = "";
 
     switch(type.toLowerCase()) {
         case "new task":
             output =
-            <p>
-                {user} has created a new task:&nbsp;
-                <Link
-                    className="hover:underline"
-                    to={"/?task=" + task}
-                >      
-                    {!isLoading && taskData.summary}
-                </Link>
-            </p>
+            <>
+                Created a new task:&nbsp;{taskLink}
+            </>
             break;
         case "new comment":
+            output =
+            <>
+                Posted a comment on:&nbsp;{taskLink}
+            </>
             break;
         case "task status change":
             break;
@@ -48,18 +54,20 @@ const UserActivity = ({user, type, datetimeCreated, task}) => {
 
     return (
         <article className="
-            flex flex-col
+            flex flex-row
         ">
             <p className="
                 text-primary-tooltip text-sm
                 tracking-tight
                 inline-block
+                flex-none
+                w-24
             ">
-                {formattedDate} ({timeAgoDate})
+                {timeAgoDate}
             </p>
             <p className="
                 text-primary-text text-normal tracking-tight
-                max-w-xl break-words
+                max-w-xl break-words pl-4 inline
             ">
                 {output}
             </p>

@@ -93,28 +93,30 @@ const Profile = () => {
                     <NotificationList username={profileUsername} />
                 </section>
                 } */}
-                <section className="
-                    flex flex-col gap-4
-                ">
+                <section className="w-full">
                     <h2 className="                      
                         text-primary-text text-lg font-bold tracking-tight
-                        mb-1 mt-5
+                        mb-1 mt-2
                         border-b-2 border-note-border w-full
                     ">
                         latest activity
                     </h2>
-                {
-                    !isActivityLoading &&            
-                    userActivity.map((activity, index) =>
-                        <UserActivity
-                            user={activity.user}
-                            datetimeCreated={activity.datetime_created}
-                            type={activity.type}
-                            task={activity.task}
-                            key={"task_" + activity.task + "_" + index}
-                        />
-                    )
-                }
+                    <section className="
+                        flex flex-col gap-1 w-full
+                    ">
+                        {
+                        !isActivityLoading &&            
+                        userActivity.map((activity, index) =>
+                            <UserActivity
+                                user={activity.user}
+                                datetimeCreated={activity.datetime_created}
+                                type={activity.type}
+                                task={activity.task}
+                                key={"task_" + activity.task + "_" + index}
+                            />
+                        )
+                        }
+                    </section>
                 </section>
                 {/* <section className="whitespace-pre w-full mt-4 break-words font-mono">
                     {JSON.stringify(userActivity, null, 4)}
