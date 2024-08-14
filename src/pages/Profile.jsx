@@ -85,6 +85,15 @@ const Profile = () => {
                     whitespace-pre-wrap">
                         {!isProfileLoading && profile.about_me || "No description provided."}
                     </p>
+                    {!isProfileLoading && isCurrentUser &&
+                    <button
+                        className="button-optional mt-2"
+                        type="button"
+                        onClick={() => { navigate("/profile/edit/"); }}
+                    >
+                        Edit Profile
+                    </button>
+                    }
                     
                 </section>
                 {/* only display notifications if current user matches profile page */}

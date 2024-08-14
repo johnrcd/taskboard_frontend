@@ -23,6 +23,14 @@
         m-4 py-2 px-4
         rounded
     }
+
+    .button-optional {
+        @apply
+        bg-offset-background hover:bg-note-border
+        text-offset-text font-normal
+        py-1 px-2
+        rounded
+    }
 }
 @layer utilities {
 
