@@ -75,7 +75,7 @@ const LoginForm = ({onLoginHandler, showError}) => {
                 <p className="text-center mt-5">Don't have an account?</p>
 
                 <Link
-                    className="px-3 hover:underline hover:text-primary-accent text-center block font-bold"
+                    className="button-containerless"
                     to="/register"
                 >
                     Register
@@ -84,7 +84,7 @@ const LoginForm = ({onLoginHandler, showError}) => {
                 <br />
 
                 <Link
-                    className="px-3 hover:underline hover:text-primary-accent text-center block font-bold"
+                    className="button-containerless"
                     to="/"
                 >
                     Go to Home Page

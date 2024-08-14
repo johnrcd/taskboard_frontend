@@ -21,19 +21,15 @@ const About = () => {
                 </p> <br />
                 <hr className="border-1 border-slate-500"/> <br />
                 <p> 
-                    The website is technically functional, but there's definitely a few
-                    features that could be added.
+                    As it stands, this website can be considered complete. I have implemented
+                    all the major features I sought out to when I initially planned this
+                    website. However, there's always room for improvement, so I may periodically
+                    update this website whenever I have time.
                 </p> <br />
-                <ul className="pl-4 list-disc list-inside">
-                    <li>User Profiles (including personalized lists for tasks you've created)</li>
-                    <li>Task Filtering (completion status, date posted, etc)</li>
-                    <li>Notifications (specifically for your tasks)</li>
-                    <li>Quality of Life (password reset, improve the ugly colours, idk)</li>
-                </ul> <br />
                 <p> 
-                    I'll be working on this website when I can, but stuff might get in the
-                    way — we'll have to see. Either way, the website is up, so have fun with
-                    it!
+                    NOTE: This website has been created for demonstration purposes. Feel free
+                    to use this website (I encourage it!), but keep in mind I won't be actively
+                    checking this website out and actually processing tickets.
                 </p> <br />
                 <hr className="border-1 border-slate-500"/> <br />
                 <p> 

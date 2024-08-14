@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 import Identicon from "../components/Identicon";
 
-const TaskComment = ({poster, dateCreated, content, keyValue}) => {
+const TaskComment = ({poster, posterName, dateCreated, content, keyValue}) => {
+    console.log(posterName);
     const date = new Date(dateCreated);
     
     return (
@@ -14,7 +15,7 @@ const TaskComment = ({poster, dateCreated, content, keyValue}) => {
             "
             key={keyValue}
         >
-            <aside>
+            <aside className="flex-none">
                 <Identicon username={poster} width="50" height="50"/>
             </aside>
             <div>
@@ -23,13 +24,21 @@ const TaskComment = ({poster, dateCreated, content, keyValue}) => {
                     text-normal hover:underline
                     font-bold
                     tracking-tight inline-block
+                    break-all
                 ">
-                    <Link to={"/profile/?username=" + poster}>{poster}</Link>
+                    <Link to={"/profile/?username=" + poster}>{posterName}</Link>
                 </h4>
+                <h5 className="
+                    text-primary-tooltip text-normal
+                    pl-1 tracking-tight
+                    inline-block
+                ">
+                    (@{poster})
+                </h5>
                 <p
                     className="
                         text-primary-tooltip text-sm
-                        pl-2 tracking-tight
+                        pl-1 tracking-tight
                         inline-block
                     "
                     title={date.toLocaleString()}
@@ -38,7 +47,7 @@ const TaskComment = ({poster, dateCreated, content, keyValue}) => {
                 </p>
                 <p className="
                     text-primary-text text-normal tracking-tight
-                    max-w-xl break-words
+                    break-words
                 ">
                     {content}
                 </p>

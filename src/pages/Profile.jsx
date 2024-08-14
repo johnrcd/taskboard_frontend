@@ -53,6 +53,7 @@ const Profile = () => {
                         text-primary-te
                         t border-b-2 border-note-border
                         w-full
+                        break-all
                     ">
                         {/* username used if no actual name has been configured */}
                         {!isProfileLoading && profile.name || profile.username}

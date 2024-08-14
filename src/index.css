@@ -31,6 +31,12 @@
         py-1 px-2
         rounded
     }
+
+    .button-containerless {
+        @apply
+        hover:underline hover:text-primary-accent
+        text-center block font-bold
+    }
 }
 @layer utilities {
 

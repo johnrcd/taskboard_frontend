@@ -4,10 +4,15 @@ import TaskComment from "./TaskComment";
 import PostCommentContainer from "../containers/PostCommentContainer";
 import ReactTimeAgo from 'react-time-ago'
 
-const TaskDetails = ({uuid, summary, author, datetimeCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
+import { useAuthentication } from "../hooks/useAuthentication";
+
+const TaskDetails = ({uuid, summary, author, authorName, datetimeCreated, project, type, status, description, comments, style, onPostCommentClick}) => {
+    const {isAuthenticated, isLoading: isAuthenticationLoading} = useAuthentication();
+    
     function handlePostCommentForm(content) {
         onPostCommentClick(content, uuid);
     }
+
 
     const dateFormatOptions = {
         weekday: "long",
@@ -45,7 +50,7 @@ const TaskDetails = ({uuid, summary, author, datetimeCreated, project, type, sta
                     </ul>
 
                     <MetadataTag>uuid: {uuid}</MetadataTag>
-                    <MetadataTag>author: <Link className="hover:underline" to={"/profile/?username=" + author.toString()}>{author}</Link></MetadataTag>
+                    <MetadataTag>author: <Link className="hover:underline" to={"/profile/?username=" + author.toString()}>{authorName} (@{author})</Link></MetadataTag>
                     <MetadataTag>posted on: {formattedDate} &#40;{timeAgoDate}&#41;</MetadataTag>
                     <MetadataTag>
                         choose view:&nbsp;
@@ -92,6 +97,7 @@ const TaskDetails = ({uuid, summary, author, datetimeCreated, project, type, sta
                         comments.map((comment, index) =>
                         <TaskComment
                             poster={comment.poster}
+                            posterName={comment.poster_name}
                             dateCreated={comment.date_created}
                             content={comment.content}
                             key={"comment_" + uuid + "_" + index}
@@ -109,9 +115,11 @@ const TaskDetails = ({uuid, summary, author, datetimeCreated, project, type, sta
                     }
                     </div>
                     <br />
+                    {!isAuthenticationLoading && isAuthenticated &&
                     <PostCommentContainer
                         onFormSubmitHandler={(uuid) => {handlePostCommentForm(uuid)}}
                     />
+                    }
                 </div>
             }
             {summary === "" &&

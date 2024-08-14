@@ -35,10 +35,10 @@ const EditProfileForm = ({username, onSubmitHandler}) => {
 
     return (
         <form className="text-primary-text" onSubmit={handleSubmit}>
-            <h2 className="text-2xl text-center font-bold">Edit Profile</h2>
+            <h2 className="text-2xl text-center font-bold">Profile Settings</h2>
             
             {/* name input */}
-            <label className="block font-bold" htmlFor="name">Name</label>
+            <label className="block font-bold" htmlFor="name">Display Name</label>
             <input
                 className="form-input-text"
                 type="text"
@@ -48,7 +48,15 @@ const EditProfileForm = ({username, onSubmitHandler}) => {
                 required
                 defaultValue={userProfile.name}
             /><br />
-            <p className="text-primary-tooltip">Your display name.</p>
+            <div className="flex flex-col gap-y-2">
+                <p className="text-primary-tooltip">
+                    The name you want to go as. 
+                </p>
+                <p className="text-primary-tooltip">
+                    Note that your profile picture is tied to your username, not your display
+                    name.
+                </p>
+            </div>
 
             <br />
 
@@ -62,7 +70,10 @@ const EditProfileForm = ({username, onSubmitHandler}) => {
                 maxLength={100}
                 defaultValue={userProfile.title}
             /><br />
-            <p className="text-primary-tooltip">Your title.</p>
+            <p className="text-primary-tooltip">
+                Your title.
+                Can be anything — software developer, artist, super-cool-creator-of-the-website.
+            </p>
 
             <br />
 
@@ -74,7 +85,7 @@ const EditProfileForm = ({username, onSubmitHandler}) => {
                 name="about_me"
                 maxLength={aboutMeCharacterCap}
                 rows={5}
-                placeholder="Share a little about yourself..."
+                placeholder="It's a bit empty here..."
                 defaultValue={userProfile.about_me}
             >
             </textarea>

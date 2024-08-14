@@ -26,6 +26,7 @@ const IndexPage = () => {
                     uuid: data.uuid,
                     summary: data.summary,
                     author: data.author,
+                    authorName: data.author_name,
                     project: data.project,
                     category: data.category,
                     type: data.type,
@@ -102,6 +103,7 @@ const IndexPage = () => {
                         uuid            = {currentTask.uuid            || ""}
                         summary         = {currentTask.summary         || ""}
                         author          = {currentTask.author          || ""}
+                        authorName      = {currentTask.authorName      || ""}
                         category        = {currentTask.category        || ""}
                         project         = {currentTask.project         || ""}
                         type            = {currentTask.type            || ""}
