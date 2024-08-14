@@ -1,8 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useProjects } from '../hooks/useProjects.js';
+import { useProfiles } from "../hooks/useProfiles";
+import { fetchFromApi } from '../util/api.js';
+import { useNavigate } from 'react-router';
 
-const EditProfileForm = ({onSubmitHandler}) => {
-    const aboutMeCharacterCap = 250;
+const EditProfileForm = ({username, onSubmitHandler}) => {
+    const navigate = useNavigate();
+    const [userProfile, setUserProfile] = useState({});
+    const aboutMeCharacterCap = 250;    
+
+    useEffect(() => {
+        const getUserProfile = async () => {
+            await fetchFromApi(
+                "/api/profiles/" + username + "/"
+            )
+                .then(response => response.json())
+                .then((data) => setUserProfile(data))
+        };
+        getUserProfile();
+    }, [username]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -13,14 +29,8 @@ const EditProfileForm = ({onSubmitHandler}) => {
 
         formData.forEach((value, key) => data[key] = value); // love prototyping
 
-        console.log(data);
 
-        onSubmitHandler(
-            // data.summary,
-            // data.description,
-            // data.project,
-            // data.type
-        );
+        onSubmitHandler(data);
     }
 
     return (
@@ -36,6 +46,7 @@ const EditProfileForm = ({onSubmitHandler}) => {
                 name="name"
                 maxLength={100}
                 required
+                defaultValue={userProfile.name}
             /><br />
             <p className="text-primary-tooltip">Your display name.</p>
 
@@ -49,6 +60,7 @@ const EditProfileForm = ({onSubmitHandler}) => {
                 id="title"
                 name="title"
                 maxLength={100}
+                defaultValue={userProfile.title}
             /><br />
             <p className="text-primary-tooltip">Your title.</p>
 
@@ -63,7 +75,7 @@ const EditProfileForm = ({onSubmitHandler}) => {
                 maxLength={aboutMeCharacterCap}
                 rows={5}
                 placeholder="Share a little about yourself..."
-                // onInput={handleDescriptionOnKeyUp}
+                defaultValue={userProfile.about_me}
             >
             </textarea>
 
@@ -75,6 +87,15 @@ const EditProfileForm = ({onSubmitHandler}) => {
                     type="submit"
                 >
                     Confirm Changes
+                </button>
+            </div>
+            <div className="flex justify-center">
+                <button
+                    className="hover:underline hover:text-primary-accent text-center block font-bold"
+                    type="button"
+                    onClick={() => { navigate("/profile/"); }}
+                >
+                    Back to Profile
                 </button>
             </div>
         </form>
