@@ -3,7 +3,7 @@
 **Rovi's Taskboard** is a full stack website for giving me tasks to do. These tasks can be ideas for games, songs, or any projects I'm working on; features for anything that's already up and running, or issues that need to be fixed.
 
 The website can be viewed here:
-<https://rovidecena.com/taskboard/>
+<https://taskboard.rovidecena.com/>
 
 ## frontend details
 

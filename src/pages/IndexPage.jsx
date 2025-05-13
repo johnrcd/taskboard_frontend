@@ -10,6 +10,7 @@ import TaskList from "../containers/TaskList.jsx";
 import TaskDetails from '../components/TaskDetails.jsx';
 import MainHeader from '../components/MainHeader.jsx';
 
+
 const IndexPage = () => {
     const [currentTask, setCurrentTask] = useState({});
     const {isAuthenticated, isLoading} = useAuthentication();
@@ -36,6 +37,10 @@ const IndexPage = () => {
                     datetimeCreated: data.datetime_created,
                 });
             });
+    }
+
+    const taskClickHandlerMobile = (uuid) => {
+        navigate("/task/?uuid=" + uuid);
     }
 
     const handlePostCommentForm = async (content, uuid) => {
@@ -77,27 +82,39 @@ const IndexPage = () => {
             <div className="flex-none"><MainHeader /></div>
             {/* not sure why i need overflow-y-hidden in main but it makes it so the other scroll bars work so */}
             <main className="
-                flex flex-row flex-1
-                max-w-7xl w-full m-auto h-full max-h-full overflow-y-hidden
+                flex md:flex-row flex-col flex-1 gap-3 md:gap-0
+                max-w-7xl md:w-full m-auto h-full max-h-full md:overflow-y-hidden
             "> 
                 <div className="
                     overflow-y-scroll
                     flex-none
-                    w-[380px]
+                    md:w-[380px]
+                    w-screen
                     max-w-full
                     h-full
                     bg-primary-border
                 ">
-                    <TaskList
-                        onTaskClick={(uuid) => taskClickHandler(uuid)}
-                    />
+                    {/* top 10 worst code designs ever */}
+                    {/* number 6: whatever this is */}
+                    <div className="hidden md:block">
+                        <TaskList
+                            onTaskClick={(uuid) => taskClickHandler(uuid)}
+                        />
+                    </div>
+                    <div className="md:hidden block">
+                        <TaskList
+                            onTaskClick={(uuid) => taskClickHandlerMobile(uuid)}
+                        />
+                    </div>
                 </div>
                 <div className="
-                    overflow-y-scroll
+                    md:show
+                    md:overflow-y-scroll
                     flex-1
                     w-full
                     h-full
-                    block
+                    hidden
+                    md:block
                 ">
                     <TaskDetails
                         uuid            = {currentTask.uuid            || ""}

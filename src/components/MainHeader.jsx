@@ -19,9 +19,9 @@ const MainHeader = () => {
     { id: 4, path: "/login/", text: "Login" };
 
     const navigationLinks = [
-        { id: 1, path: "/about/",    text: "About"         },
-        { id: 2, path: "/",         text: "View Board"    },
-        { id: 3, path: "/submit/",   text: "Submit A Task" },
+        { id: 1, path: "/",        text: "About"         },
+        { id: 2, path: "/board/",  text: "View Board"    },
+        { id: 3, path: "/submit/", text: "Submit A Task" },
         login_link,
     ];
 
@@ -110,7 +110,7 @@ const MainHeader = () => {
                     <ul
                         className={
                             isNavigationEnabled
-                            ? 'block lg:hidden right-0 top-0 w-full'
+                            ? 'block lg:hidden right-0 top-0 w-full mt-5'
                             : 'h-[0%] fixed bottom-0 left-[-100%] top-[-100%]'
                         }
                     >
